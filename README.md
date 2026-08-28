@@ -1,78 +1,42 @@
-# React + TypeScript + Vite
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+  <defs>
+    <linearGradient id="bramble-main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="100%" stop-color="#BE123C" />
+    </linearGradient>
+    <linearGradient id="bramble-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB7185" />
+      <stop offset="100%" stop-color="#E11D48" />
+    </linearGradient>
+  </defs>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  <!-- Left Spine / Thorn Stem -->
+  <path 
+    d="M5 3C5 2.44772 5.44772 2 6 2H9L7 8L10 12L7 16L9 22H6C5.44772 22 5 21.5523 5 21V3Z" 
+    fill="url(#bramble-main)" 
+  />
 
-Currently, two official plugins are available:
+  <!-- Top Interlocking Loop -->
+  <path 
+    d="M8 3H15C17.7614 3 20 5.23858 20 8C20 10.7614 17.7614 13 15 13H8L10 10H15C16.1046 10 17 9.10457 17 8C17 6.89543 16.1046 6 15 6H8.75L8 3Z" 
+    fill="url(#bramble-accent)" 
+  />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+  <!-- Bottom Interlocking Loop with Sharp Thorn Endpoint -->
+  <path 
+    d="M8 11H16C18.7614 11 21 13.2386 21 16C21 18.7614 18.7614 21 16 21H8.75L7.8 18H16C17.1046 18 18 17.1046 18 16C18 14.8954 17.1046 14 16 14H10L8 11Z" 
+    fill="url(#bramble-main)" 
+  />
 
-## React Compiler
+  <!-- Sharp Center Thorn Node -->
+  <polygon points="10,12 14,10 12,14" fill="#FFE4E6" />
+</svg>
+<img width="150" height="150" alt="bramble" src="https://github.com/user-attachments/assets/b22f9ff7-67f9-473a-a2f9-03cabab10d6a" />
+<br><br>
+🌿 Bramble — React UI Component Library
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+A modern and developer-friendly component library for building consistent React interfaces faster.
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+Bramble provides a collection of reusable, type-safe and customizable components built with React, TypeScript and SCSS Modules, with a focus on simplicity, consistency and scalability.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+Build once. Reuse everywhere.
