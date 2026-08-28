@@ -5,9 +5,12 @@ export type InputVariant = "primary" | "ghost";
 export type InputSize = "sm" | "md" | "lg";
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  variant?: InputVariant;
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    "size"
+  > {
   size?: InputSize;
+  variant?: InputVariant;
 }
 
 export function Input({

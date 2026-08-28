@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import heroImg from '../assets/bramble.svg'
-import {Button, Input} from '../components/index.ts'
+import {Button} from '../components/index.ts'
 import './App.css'
 
 function App() {
