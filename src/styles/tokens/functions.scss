@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+
 $breakpoints: (
     sm: 576px,
     md: 768px,
@@ -7,8 +11,8 @@ $breakpoints: (
 );
 
 @mixin respond($breakpoint) {
-    @if map-has-key($breakpoints, $breakpoint) {
-        @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @if map.has-key($breakpoints, $breakpoint) {
+        @media (min-width: map.get($breakpoints, $breakpoint)) {
             @content;
         }
     }
@@ -28,7 +32,7 @@ $breakpoints: (
 // $multiplier -> how many each unit is worth (default 0.25rem, tipo Tailwind)
 // $unit       -> final unit (rem, px, em...)
 @mixin generate-spacing-classes($prefix, $property, $step: 1, $max: 10, $multiplier: 0.25, $unit: rem) {
-    $count: floor($max / $step);
+    $count: math.floor(math.div($max, $step));
 
     @for $i from 1 through $count {
         $value: $i * $step;
@@ -59,7 +63,7 @@ $breakpoints: (
 // $prefix     -> ex: 'px-', 'py-'
 // $properties -> properties map, ex: (padding-left, padding-right)
 @mixin generate-spacing-classes-multi($prefix, $properties, $step: 1, $max: 10, $multiplier: 0.25, $unit: rem) {
-    $count: floor($max / $step);
+    $count: math.floor(math.div($max, $step));
 
     @for $i from 1 through $count {
         $value: $i * $step;
@@ -125,14 +129,14 @@ $breakpoints: (
 
 @mixin generate-spacing-batch($config) {
     @each $prefix, $settings in $config {
-        $property: map-get($settings, property);
+        $property: map.get($settings, property);
 
-        @if type-of($property)=='list' {
-            @include generate-spacing-classes-multi($prefix, $property, map-get($settings, step), map-get($settings, max));
+        @if meta.type-of($property)=='list' {
+            @include generate-spacing-classes-multi($prefix, $property, map.get($settings, step), map.get($settings, max));
         }
 
         @else {
-            @include generate-spacing-classes($prefix, $property, map-get($settings, step), map-get($settings, max));
+            @include generate-spacing-classes($prefix, $property, map.get($settings, step), map.get($settings, max));
         }
     }
 }
