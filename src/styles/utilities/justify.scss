@@ -1,0 +1,16 @@
+@use "../tokens/functions" as *;
+
+$justify: (
+  'justify-default': flex-start,
+  'justify-end': flex-end,
+  'justify-center': center,
+  'justify-between': space-between,
+  'justify-around': space-around,
+  'justify-evenly': space-evenly,
+  'justify-initial': initial,
+  'justify-inherit': inherit,
+);
+
+@each $class-name, $value in $justify {
+  @include generate-utility-class($class-name, (justify-content: $value));
+}

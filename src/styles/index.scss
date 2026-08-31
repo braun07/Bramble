@@ -1,5 +1,5 @@
+@use "./tokens/functions";
 @use "./tokens/colors";
-@use "./tokens/spacing";
 @use "./tokens/typography";
 @use "./tokens/shadows";
 
@@ -9,4 +9,5 @@
 @use "./utilities/display";
 @use "./utilities/flex";
 @use "./utilities/grid";
-// @use "./utilities/spacing";
+@use "./utilities/spacing";
+@use "./utilities/radius";

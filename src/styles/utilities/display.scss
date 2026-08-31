@@ -1,15 +1,12 @@
-.flex {
-  display: flex;
-}
+@use "../tokens/functions" as *;
 
-.inline-flex {
-  display: inline-flex;
-}
+$displays: (
+  'flex': flex,
+  'inline-flex': inline-flex,
+  'block': block,
+  'hidden': none
+);
 
-.block {
-  display: block;
-}
-
-.hidden {
-  display: none;
+@each $class-name, $value in $displays {
+  @include generate-utility-class($class-name, (display: $value));
 }

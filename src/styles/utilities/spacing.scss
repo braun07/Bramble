@@ -1,43 +1,27 @@
-.gap-1 {
-  gap: var(--space-1);
-}
+@use "../tokens/functions" as *;
 
-.gap-2 {
-  gap: var(--space-2);
-}
+// padding classes
+@include generate-spacing-batch((
+  'p-': (property: padding, step: 1, max: 100),
+  'pt-': (property: padding-top, step: 1, max: 100),
+  'pb-': (property: padding-bottom, step: 1, max: 100),
+  'pl-': (property: padding-left, step: 1, max: 100),
+  'pr-': (property: padding-right, step: 1, max: 100),
+  'px-': (property: (padding-left, padding-right), step: 1, max: 100),
+  'py-': (property: (padding-top, padding-bottom), step: 1, max: 100)
+));
 
-.gap-3 {
-  gap: var(--space-3);
-}
+// margin classes
+@include generate-spacing-batch((
+  'm-': (property: margin, step: 1, max: 100),
+  'mt-': (property: margin-top, step: 1, max: 100),
+  'mb-': (property: margin-bottom, step: 1, max: 100),
+  'ml-': (property: margin-left, step: 1, max: 100),
+  'mr-': (property: margin-right, step: 1, max: 100),
+  'mx-': (property: (margin-left, margin-right), step: 1, max: 100),
+  'my-': (property: (margin-top, margin-bottom), step: 1, max: 100)
+));
 
-.gap-4 {
-  gap: var(--space-4);
-}
-
-.p-1 {
-  padding: var(--space-1);
-}
-
-.p-2 {
-  padding: var(--space-2);
-}
-
-.p-4 {
-  padding: var(--space-4);
-}
-
-.p-6 {
-  padding: var(--space-6);
-}
-
-.mt-2 {
-  margin-top: var(--space-2);
-}
-
-.mt-4 {
-  margin-top: var(--space-4);
-}
-
-.mt-6 {
-  margin-top: var(--space-6);
-}
+@include generate-utility-class('m-auto', (margin: auto));
+@include generate-utility-class('mt-auto', (margin-top: auto));
+@include generate-utility-class('mb-auto', (margin-bottom: auto));

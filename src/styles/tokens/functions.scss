@@ -1,0 +1,138 @@
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1536px
+);
+
+@mixin respond($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Breakpoint `#{$breakpoint}` doesn't exist in $breakpoints.";
+    }
+}
+
+// ============================================================
+// Number Class Generator (ex: m-1, m-2 ... m-10)
+// ============================================================
+// $prefix     -> ex: 'm-', 'p-', 'gap-'
+// $property   -> CSS property, ex: 'margin', 'padding'
+// $step       -> how many steps does it takes to the next class to generate (1, 2, 5...)
+// $max        -> max value of the class to generate (ex: 10, 20, 100...)
+// $multiplier -> how many each unit is worth (default 0.25rem, tipo Tailwind)
+// $unit       -> final unit (rem, px, em...)
+@mixin generate-spacing-classes($prefix, $property, $step: 1, $max: 10, $multiplier: 0.25, $unit: rem) {
+    $count: floor($max / $step);
+
+    @for $i from 1 through $count {
+        $value: $i * $step;
+
+        .#{$prefix}#{$value} {
+            #{$property}: #{$value * $multiplier}#{$unit};
+        }
+    }
+
+    @each $bp, $bp-value in $breakpoints {
+        @include respond($bp) {
+            @for $i from 1 through $count {
+                $value: $i * $step;
+
+                .#{$bp}\:#{$prefix}#{$value} {
+                    #{$property}: #{$value * $multiplier}#{$unit};
+                }
+            }
+        }
+    }
+}
+
+// ============================================================
+// Multiple Properties with Multiple Values Class Generator (ex: px-1, py-2, mx-3, my-4)
+// ============================================================
+// function to generate classes that set multiple properties with the same value
+// Ideal to use with px-, py-, mx-, my- etc.
+// $prefix     -> ex: 'px-', 'py-'
+// $properties -> properties map, ex: (padding-left, padding-right)
+@mixin generate-spacing-classes-multi($prefix, $properties, $step: 1, $max: 10, $multiplier: 0.25, $unit: rem) {
+    $count: floor($max / $step);
+
+    @for $i from 1 through $count {
+        $value: $i * $step;
+
+        .#{$prefix}#{$value} {
+            @each $property in $properties {
+                #{$property}: #{$value * $multiplier}#{$unit};
+            }
+        }
+    }
+
+    @each $bp, $bp-value in $breakpoints {
+        @include respond($bp) {
+            @for $i from 1 through $count {
+                $value: $i * $step;
+
+                .#{$bp}\:#{$prefix}#{$value} {
+                    @each $property in $properties {
+                        #{$property}: #{$value * $multiplier}#{$unit};
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+// ============================================================
+// Multiple Properties Class Generator (ex: inline-flex, flex-col, etc)
+// ============================================================
+// $class-name -> ex: 'inline-flex'
+// $properties -> properties map, ex: (display: flex, flex-direction: row)
+
+
+@mixin generate-utility-class($class-name, $properties) {
+    .#{$class-name} {
+        @each $prop, $val in $properties {
+            #{$prop}: #{$val};
+        }
+    }
+
+    @each $bp, $bp-value in $breakpoints {
+        @include respond($bp) {
+            .#{$bp}\:#{$class-name} {
+                @each $prop, $val in $properties {
+                    #{$prop}: #{$val};
+                }
+            }
+        }
+    }
+}
+
+// ============================================================
+// 4. Batch Generator for easier / faster use
+// ============================================================
+// $config -> includes a map of prefixes and their settings, ex: (
+// (
+//   'm-': (property: margin, step: 1, max: 10),
+//   'p-': (property: padding, step: 1, max: 10),
+//   'gap-': (property: gap, step: 2, max: 20)
+// )
+
+@mixin generate-spacing-batch($config) {
+    @each $prefix, $settings in $config {
+        $property: map-get($settings, property);
+
+        @if type-of($property)=='list' {
+            @include generate-spacing-classes-multi($prefix, $property, map-get($settings, step), map-get($settings, max));
+        }
+
+        @else {
+            @include generate-spacing-classes($prefix, $property, map-get($settings, step), map-get($settings, max));
+        }
+    }
+}
