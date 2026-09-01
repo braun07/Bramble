@@ -1,0 +1,19 @@
+@use "../tokens/functions" as *;
+
+$text-colors: (
+  'color-primary': var(--color-primary),
+  'color-primary-hover': var(--color-primary-hover),
+  'color-primary-subtle': var(--color-primary-subtle),
+  'color-background': var(--color-background),
+  'color-foreground': var(--color-foreground),
+  'color-muted': var(--color-muted),
+  'color-border': var(--color-border),
+  'color-success': var(--color-success),
+  'color-warning': var(--color-warning),
+  'color-danger': var(--color-danger),
+  'color-primary-foreground': var(--color-primary-foreground)
+);
+
+@each $class-name, $value in $text-colors {
+  @include generate-utility-class($class-name, (color: $value));
+}
