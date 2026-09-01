@@ -1,27 +1,23 @@
-.items-center {
-  align-items: center;
+@use "../tokens/functions" as *;
+
+$flex-directions: (
+  'flex-row': row,
+  'flex-row-reverse': row-reverse,
+  'flex-col': column,
+  'flex-col-reverse': column-reverse
+);
+
+@each $class-name, $value in $flex-directions {
+  @include generate-utility-class($class-name, (flex-direction: $value));
 }
 
-.items-start {
-  align-items: flex-start;
-}
+$align-items: (
+  'items-center': center,
+  'items-start': start,
+  'items-end': end,
+  'items-stretch': stretch,
+);
 
-.items-end {
-  align-items: flex-end;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.flex-row {
-  flex-direction: row;
+@each $class-name, $value in $align-items {
+  @include generate-utility-class($class-name, (align-items: $value));
 }
