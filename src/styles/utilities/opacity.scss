@@ -1,3 +1,3 @@
 @use "../tokens/functions" as *;
 
-@include generate-spacing-classes('opacity', 'opacity', 0, 100, $unit: "%");
+@include generate-spacing-classes('opacity', 'opacity', 1, 100, $unit: "%");

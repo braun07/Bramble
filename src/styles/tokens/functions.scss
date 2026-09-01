@@ -33,9 +33,10 @@ $breakpoints: (
 @mixin generate-spacing-classes($prefix, $property, $step: 1, $max: 10, $unit: px) {
     $count: math.floor(math.div($max, $step));
 
-    @for $i from 1 through $max {
-        .#{$prefix}-#{$i} {
-            #{$property}: #{$i}#{$unit};
+    @for $i from 1 through $count {
+        $value: $i * $step;
+        .#{$prefix}-#{$value} {
+            #{$property}: #{$value}#{$unit};
         }
     }
 
@@ -43,7 +44,6 @@ $breakpoints: (
         @include respond($bp) {
             @for $i from 1 through $count {
                 $value: $i * $step;
-
                 .#{$bp}\:#{$prefix}-#{$value} {
                     #{$property}: #{$value}#{$unit};
                 }

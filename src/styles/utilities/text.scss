@@ -1,8 +1,8 @@
 @use "../tokens/functions" as *;
 
 @include generate-spacing-classes('text', 'font-size', 1, 100);
-@include generate-spacing-classes('fw', 'font-weight', 100, 900);
-@include generate-spacing-classes('line-h', 'line-height', 100, 200, $unit: "%");
+@include generate-spacing-classes('fw', 'font-weight', 100, 900, $unit: '');
+@include generate-spacing-classes('line-h', 'line-height', 10, 250, $unit: "%");
 
 $text-align: (
     'align-start': start,
