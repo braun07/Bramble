@@ -1,0 +1,5 @@
+@use "../tokens/functions" as *;
+
+@include generate-spacing-classes('w', 'width', 1, 100, $unit: "%");
+@include generate-spacing-classes('max-w', 'max-width', 1, 100, $unit: "%");
+@include generate-spacing-classes('min-w', 'min-width', 1, 100, $unit: "%");

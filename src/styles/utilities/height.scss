@@ -1,0 +1,5 @@
+@use "../tokens/functions" as *;
+
+@include generate-spacing-classes('h', 'height', 1, 100, $unit: "%");
+@include generate-spacing-classes('max-h', 'max-height', 1, 100, $unit: "%");
+@include generate-spacing-classes('min-h', 'min-height', 1, 100, $unit: "%");

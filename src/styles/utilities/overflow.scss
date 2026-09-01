@@ -1,0 +1,12 @@
+@use "../tokens/functions" as *;
+
+$overflows: (
+  'overflow-visible': visible,
+  'overflow-hidden': hidden,
+  'overflow-scroll': scroll,
+  'overflow-auto': auto
+);
+
+@each $class-name, $value in $overflows {
+  @include generate-utility-class($class-name, (overflow: $value));
+}

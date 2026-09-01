@@ -1,13 +1,18 @@
 @use "./tokens/functions";
 @use "./tokens/colors";
-@use "./tokens/typography";
-@use "./tokens/shadows";
 
-// @use "./base/reset";
 @use "./base/globals";
 
 @use "./utilities/display";
 @use "./utilities/flex";
 @use "./utilities/grid";
-@use "./utilities/spacing";
+@use "./utilities/justify";
 @use "./utilities/radius";
+@use "./utilities/spacing";
+@use "./utilities/width";
+@use "./utilities/height";
+@use "./utilities/position";
+@use "./utilities/overflow";
+@use "./utilities/box-sizing";
+@use "./utilities/text";
+@use "./utilities/opacity";

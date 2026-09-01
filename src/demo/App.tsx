@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <section id="center" className="flex flex-col items-center justify-center m-auto">
+      <section id="center" className="flex flex-col items-center justify-center m-auto w-80">
         <img src={heroImg} className="base" width="170" height="179" alt="" />
 
         <Button

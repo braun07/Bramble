@@ -1,0 +1,10 @@
+@use "../tokens/functions" as *;
+
+$boxsizing: (
+  'border-box': border-box,
+  'content-box': content-box
+);
+
+@each $class-name, $value in $boxsizing {
+  @include generate-utility-class($class-name, (box-sizing: $value));
+}

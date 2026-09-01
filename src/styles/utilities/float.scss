@@ -1,0 +1,14 @@
+@use "../tokens/functions" as *;
+
+$float: (
+  'left': left,
+  'right': right,
+  'none': none,
+  'inline-start': inline-start,
+  'inline-end': inline-end,
+  'initial': initial,
+);
+
+@each $class-name, $value in $float {
+  @include generate-utility-class($class-name, (float: $value));
+}

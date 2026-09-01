@@ -1,0 +1,18 @@
+@use "../tokens/functions" as *;
+
+@include generate-spacing-classes('text', 'font-size', 1, 100);
+@include generate-spacing-classes('fw', 'font-weight', 100, 900);
+@include generate-spacing-classes('line-h', 'line-height', 100, 200, $unit: "%");
+
+$text-align: (
+    'align-start': start,
+    'align-center': center,
+    'align-end': end,
+    'align-justify': justify,
+    'align-left': left,
+    'align-right': right,
+);
+
+@each $class-name, $value in $text-align {
+    @include generate-utility-class($class-name, (text-align: $value));
+}
