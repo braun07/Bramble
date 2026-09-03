@@ -3,3 +3,6 @@
 @include generate-spacing-classes('h', 'height', 1, 100, $unit: "%");
 @include generate-spacing-classes('max-h', 'max-height', 1, 100, $unit: "%");
 @include generate-spacing-classes('min-h', 'min-height', 1, 100, $unit: "%");
+@include generate-utility-class('h-fit', (height: fit-content));
+@include generate-utility-class('h-max', (height: max-content));
+@include generate-utility-class('h-min', (height: min-content));

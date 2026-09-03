@@ -12,7 +12,7 @@ function App() {
 
         <Button
           type="button"
-          className="flex mt-10 rounded-1"
+          className="flex mt-10 rounded-4"
           onClick={() => setCount((count) => count + 1)}
         >
           Count is {count}

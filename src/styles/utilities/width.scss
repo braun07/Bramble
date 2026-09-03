@@ -3,3 +3,6 @@
 @include generate-spacing-classes('w', 'width', 1, 100, $unit: "%");
 @include generate-spacing-classes('max-w', 'max-width', 1, 100, $unit: "%");
 @include generate-spacing-classes('min-w', 'min-width', 1, 100, $unit: "%");
+@include generate-utility-class('w-fit', (width: fit-content));
+@include generate-utility-class('w-max', (width: max-content));
+@include generate-utility-class('w-min', (width: min-content));
