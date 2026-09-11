@@ -1,0 +1,12 @@
+@use "../tokens/functions" as *;
+
+$background-colors: (
+  'bg-bramble': var(--primary),
+  'bg-base-1': var(--bg-base-1),
+  'bg-code-1': var(--code-bg-1),
+  'bg-code-2': var(--code-bg-2),
+);
+
+@each $class-name, $value in $background-colors {
+  @include generate-utility-class($class-name, (background-color: $value));
+}

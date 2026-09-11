@@ -1,18 +1,20 @@
-import { useState } from 'react'
-import heroImg from '../assets/bramble.svg'
-import {Button} from '../components/index.ts'
+import { useState } from 'react';
+import {Button, Menu} from '../components/index.ts';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const handleTranslate = () => {
+    console.log("Translate clicked");
+  };
 
   return (
     <>
+      <Menu onTranslate={handleTranslate} />
       <section id="center" className="flex flex-col items-center justify-center m-auto w-80">
-        <img src={heroImg} className="base" width="170" height="179" alt="" />
-
         <Button
           type="button"
-          className="flex mt-10 rounded-4"
+          className="flex mb-200 rounded-4"
           onClick={() => setCount((count) => count + 1)}
         >
           Count is {count}
