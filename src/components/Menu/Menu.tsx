@@ -16,8 +16,8 @@ export function Menu({ onTranslate }: MenuProps) {
                 <span className="text-40 fw-700 hidden md:flex">Bramble</span>
             </div>
 
-            <div className="flex gap-100 items-center">
-                <ul className="menu-links flex gap-40 items-center">
+            <div className="flex gap-30 sm:gap-100 items-center">
+                <ul className="menu-links flex gap-20 sm:gap-40 items-center">
                     <li>
                         <a href="#home" className="flex"><img src={home} className="menu-nav-icon" width="39" height="29" alt="Home" /></a>
                     </li>
