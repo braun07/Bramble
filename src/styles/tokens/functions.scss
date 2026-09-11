@@ -33,7 +33,7 @@ $breakpoints: (
 @mixin generate-spacing-classes($prefix, $property, $step: 1, $max: 10, $unit: px) {
     $count: math.floor(math.div($max, $step));
 
-    @for $i from 1 through $count {
+    @for $i from 0 through $count {
         $value: $i * $step;
         .#{$prefix}-#{$value} {
             #{$property}: #{$value}#{$unit};
