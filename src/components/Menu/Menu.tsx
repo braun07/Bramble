@@ -31,7 +31,7 @@ export function Menu({ onTranslate }: MenuProps) {
 
                 <Button
                     type="button"
-                    className="px-20 py-10 rounded-10 w-fit h-fit fw-300 text-20 text-primary bg-base-1 border-bramble border-2 border-solid"
+                    className="px-10 py-5 sm:px-20 sm:py-10 rounded-10 w-fit h-fit fw-300 text-20 text-primary bg-base-1 border-bramble border-2 border-solid"
                     onClick={onTranslate}
                 >
                     PT

@@ -2,6 +2,7 @@
 
 $background-colors: (
   'bg-bramble': var(--primary),
+  'bg-bramble-2': var(--primary-2),
   'bg-base-1': var(--bg-base-1),
   'bg-code-1': var(--code-bg-1),
   'bg-code-2': var(--code-bg-2),
@@ -10,3 +11,13 @@ $background-colors: (
 @each $class-name, $value in $background-colors {
   @include generate-utility-class($class-name, (background-color: $value));
 }
+
+$gradient-colors: (
+    bramble: var(--primary),
+    bramble-2: var(--primary-2),
+    base-1: var(--bg-base-1),
+    code-1: var(--code-bg-1),
+    code-2: var(--code-bg-2),
+);
+
+@include generate-gradient-classes($gradient-colors);
