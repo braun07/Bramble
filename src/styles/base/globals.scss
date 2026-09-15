@@ -66,3 +66,14 @@ textarea {
 .menu-links {
   list-style: none;
 }
+
+.code-window {
+  min-width: 777px;
+  box-shadow: 0 0 89.5px -39px var(--primary);
+  
+  &__dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+}

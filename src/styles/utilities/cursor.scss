@@ -1,0 +1,16 @@
+@use "../tokens/functions" as *;
+
+$cursors: (
+    'cursor-pointer': pointer,
+    'cursor-default': default,
+    'cursor-not-allowed': not-allowed,
+    'cursor-text': text,
+    'cursor-wait': wait,
+    'cursor-help': help,
+    'cursor-crosshair': crosshair,
+    'cursor-move': move,
+);
+
+@each $class-name, $value in $cursors {
+    @include generate-utility-class($class-name, (cursor: $value));
+}

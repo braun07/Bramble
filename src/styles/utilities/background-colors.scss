@@ -6,6 +6,9 @@ $background-colors: (
   'bg-base-1': var(--bg-base-1),
   'bg-code-1': var(--code-bg-1),
   'bg-code-2': var(--code-bg-2),
+  'dot-red': #DF6C62,
+  'dot-yellow': #ECBB55,
+  'dot-green': #56B855,
 );
 
 @each $class-name, $value in $background-colors {

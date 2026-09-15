@@ -1,7 +1,6 @@
 @use "../tokens/functions" as *;
 
 $text-colors: (
-  'text-primary': var(--text-primary),
   'text-bramble': var(--primary),
   'code-comment': var(--code-comment),
   'code-purple': var(--code-purple),
@@ -9,7 +8,9 @@ $text-colors: (
   'code-text': var(--code-text),
   'code-yellow-text': var(--code-yellow-text),
   'code-pink': var(--code-pink),
-  'code-blue-simbols': var(--code-blue-simbols)
+  'code-blue-simbols': var(--code-blue-simbols),
+  'code-text-number': var(--code-text-number),
+  'text-primary': var(--text-primary),
 );
 
 @each $class-name, $value in $text-colors {
