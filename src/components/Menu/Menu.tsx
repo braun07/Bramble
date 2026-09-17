@@ -10,7 +10,7 @@ export type MenuProps = {
 
 export function Menu({ onTranslate }: MenuProps) {
     return (
-        <nav className="flex items-center justify-between w-100 px-30 md:px-60 xxl:px-120 py-30 fixed top-0 bg-base-1">
+        <nav className="flex items-center justify-between w-100 px-30 md:px-60 xxl:px-120 py-30 fixed top-0 bg-blur index-2">
             <div className="flex gap-20 items-center">
                 <img src={heroImg} className="menu-icon" width="49" height="63" alt="Logo" />
                 <span className="text-40 fw-700 hidden md:flex">Bramble</span>

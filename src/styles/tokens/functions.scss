@@ -31,12 +31,19 @@ $breakpoints: (
 // $step       -> how many steps does it takes to the next class to generate (1, 2, 5...)
 // $max        -> max value of the class to generate (ex: 10, 20, 100...)
 // $unit       -> final unit (rem, px, em...)
-@mixin generate-spacing-classes($prefix, $property, $step: 1, $max: 10, $unit: px) {
+@mixin generate-spacing-classes($prefix, $property, $step: 1, $max: 10, $unit: px, $reset-properties: null) {
     $count: math.floor(math.div($max, $step));
 
     @for $i from 0 through $count {
         $value: $i * $step;
+
         .#{$prefix}-#{$value} {
+            @if $reset-properties != null {
+                @each $reset-property, $reset-value in $reset-properties {
+                    #{$reset-property}: #{$reset-value};
+                }
+            }
+
             #{$property}: #{$value}#{$unit};
         }
     }
@@ -45,7 +52,14 @@ $breakpoints: (
         @include respond($bp) {
             @for $i from 1 through $count {
                 $value: $i * $step;
+
                 .#{$bp}\:#{$prefix}-#{$value} {
+                    @if $reset-properties != null {
+                        @each $reset-property, $reset-value in $reset-properties {
+                            #{$reset-property}: #{$reset-value};
+                        }
+                    }
+
                     #{$property}: #{$value}#{$unit};
                 }
             }

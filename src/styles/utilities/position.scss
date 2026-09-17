@@ -18,3 +18,5 @@ $positions: (
   'bottom': (property: bottom, step: 1, max: 200),
   'left': (property: left, step: 1, max: 200),
 ));
+
+@include generate-spacing-classes('index', 'z-index', 1, 200, '');

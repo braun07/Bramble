@@ -24,3 +24,5 @@ $gradient-colors: (
 );
 
 @include generate-gradient-classes($gradient-colors);
+
+@include generate-utility-class('bg-blur', ( background-color: #16171dd0, backdrop-filter: blur(10px), -webkit-backdrop-filter: blur(10px)));

@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Menu onTranslate={handleTranslate} />
-      <div id="container" className="flex flex-col justify-center w-100 px-30 md:px-60 xxl:px-120">
+      <div id="container" className="flex flex-col justify-center w-100 px-30 md:px-60 xxl:px-120 gap-90 mt-180">
         <section id="home" className="flex flex-col xl:flex-row items-center justify-between w-100">
           <div className="xl:max-w-46 flex flex-col gap-50">
             <h2 className='fw-600 text-40 sm:text-55 md:text-69 xl:text-40 xxl:text-55 exl:text-70 line-h-100'>
@@ -36,6 +36,9 @@ function App() {
           <CodeWindow
             className="ml-60 hidden xl:flex"
           />
+        </section>
+        <section id="components" className="flex flex-col gap-90 items-center">
+          <h3 className="fw-600 text-32 border-bramble border-solid border-bottom-3 line-h-180">Components</h3>
         </section>
       </div>
     </>

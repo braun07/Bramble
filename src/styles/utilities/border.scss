@@ -24,3 +24,7 @@ $border-style: (
 
 @include generate-spacing-classes('gap', 'gap', 1, 200);
 @include generate-spacing-classes('border', 'border-width', 1, 200);
+@include generate-spacing-classes('border-bottom', 'border-bottom-width', 1, 200, px, ( border-width: 0 ));
+@include generate-spacing-classes('border-top', 'border-top-width', 1, 200, px, ( border-width: 0 ));
+@include generate-spacing-classes('border-right', 'border-right-width', 1, 200, px, ( border-width: 0 ));
+@include generate-spacing-classes('border-left', 'border-left-width', 1, 200, px, ( border-width: 0 ));
