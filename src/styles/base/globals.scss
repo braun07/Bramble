@@ -70,10 +70,27 @@ textarea {
 .code-window {
   min-width: 777px;
   box-shadow: 0 0 89.5px -39px var(--primary);
-  
+
   &__dot {
     width: 11px;
     height: 11px;
     border-radius: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu-links img {
+    width: auto;
+    height: 22px;
+  }
+
+  .contact-us-container img {
+    width: 20px;
+    height: auto;
   }
 }
