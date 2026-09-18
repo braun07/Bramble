@@ -12,13 +12,13 @@ function App() {
   return (
     <>
       <Menu />
-      <div id="container" className="flex flex-col justify-center w-100 px-30 md:px-60 xxl:px-120 gap-90 my-180">
+      <div id="container" className="flex flex-col justify-center w-100 px-30 md:px-60 xxl:px-120 gap-60 sm:gap-90 my-130 sm:my-180">
         <section id="home" className="flex flex-col xl:flex-row items-center justify-between w-100">
           <div className="xl:max-w-46 flex flex-col gap-50">
-            <h2 className='fw-600 text-40 sm:text-55 md:text-69 xl:text-40 xxl:text-55 exl:text-70 line-h-100'>
+            <h2 className='fw-600 text-30 sm:text-55 md:text-69 xl:text-40 xxl:text-55 exl:text-70 line-h-100'>
               <span className="text-bramble">{t("Build")}</span> {t("once")}.<br /> {t("Scale")} <span className="text-bramble">{t("everywhere")}</span>.
             </h2>
-            <p className="fw-300 text-primary align-justify text-24 lg:text-32 line-h-110 mb-10">
+            <p className="fw-300 text-primary align-justify text-20 sm:text-24 lg:text-32 line-h-110 mb-10">
               {t("Bramble_provides")}
             </p>
             <div className="flex flex-col md:flex-row gap-20">
@@ -40,12 +40,12 @@ function App() {
             className="ml-60 hidden xl:flex"
           />
         </section>
-        <section id="components" className="flex flex-col gap-90 items-center">
+        <section id="components" className="flex flex-col gap-60 sm:gap-90 items-center">
           <h3 className="fw-600 text-26 lg:text-32 border-bramble border-solid border-bottom-3 line-h-180">{t("Components")}</h3>
 
           <div className="flex bg-code-2 px-100 py-100 rounded-20 gap-40"></div>
         </section>
-        <section id="contact" className="flex flex-col gap-90 items-center w-100">
+        <section id="contact" className="flex flex-col gap-60 sm:gap-90 items-center w-100">
           <h3 className="fw-600 text-26 lg:text-32 border-bramble border-solid border-bottom-3 line-h-180">{t("Contact")} <span className="text-bramble">{t("Us")}</span></h3>
 
           <div className="flex flex-col lg:flex-row justify-center lg:justify-between wrap gap-30 w-100 items-center contact-us-container">
