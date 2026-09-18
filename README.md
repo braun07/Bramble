@@ -4,4 +4,4 @@ Bramble provides a collection of reusable React components, utility classes, and
 
 Build once. Scale everywhere.
 
-<img width="1920" height="2244" alt="bramble welcome" src="https://github.com/user-attachments/assets/344baa40-742e-400f-9280-d5fdb4bbc784" />
+<img width="1920" height="2244" alt="bramble welcome" src="https://github.com/user-attachments/assets/1cf69bdf-0cd7-407a-8cd0-63f3bc195696" />
