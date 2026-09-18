@@ -3,12 +3,20 @@ import home from '../../assets/home.svg';
 import components from '../../assets/components.svg';
 import contact from '../../assets/contact.svg';
 import { Button } from '../index.ts';
+import { useTranslation } from 'react-i18next';
 
 export type MenuProps = {
     onTranslate: () => void;
 };
 
-export function Menu({ onTranslate }: MenuProps) {
+export function Menu() {
+    const { i18n } = useTranslation();
+
+    const toggleLanguage = () => {
+        const newLanguage = i18n.language === 'en' ? 'pt' : 'en';
+        i18n.changeLanguage(newLanguage);
+    };
+
     return (
         <nav className="flex items-center justify-between w-100 px-30 md:px-60 xxl:px-120 py-30 fixed top-0 bg-blur index-2">
             <div className="flex gap-20 items-center">
@@ -32,9 +40,10 @@ export function Menu({ onTranslate }: MenuProps) {
                 <Button
                     type="button"
                     className="px-10 py-5 sm:px-20 sm:py-10 rounded-10 w-fit h-fit fw-300 text-20 text-primary bg-base-1 border-bramble border-2 border-solid"
-                    onClick={onTranslate}
+                    onClick={toggleLanguage}
+                    style={{ width: '70px' }}
                 >
-                    PT
+                    {i18n.language === 'en' ? 'PT' : 'EN'}
                 </Button>
             </div>
         </nav>
