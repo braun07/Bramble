@@ -4,11 +4,18 @@ import styles from "./Button.module.scss";
 export type ButtonVariant = "primary" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface BaseProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
 }
+
+type ButtonAsButton = BaseProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined };
+
+type ButtonAsLink = BaseProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
+
+export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 export function Button({
   variant = "primary",
@@ -16,15 +23,11 @@ export function Button({
   className,
   ...props
 }: ButtonProps) {
-  return (
-    <button
-      className={cn(
-        styles.button,
-        styles[variant],
-        styles[size],
-        className
-      )}
-      {...props}
-    />
-  );
+  const classes = cn(styles.button, styles[variant], styles[size], className);
+
+  if (props.href !== undefined) {
+    return <a className={classes} {...props} />;
+  }
+
+  return <button className={classes} {...props} />;
 }

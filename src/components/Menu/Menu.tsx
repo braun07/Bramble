@@ -5,10 +5,6 @@ import contact from '../../assets/contact.svg';
 import { Button } from '../index.ts';
 import { useTranslation } from 'react-i18next';
 
-export type MenuProps = {
-    onTranslate: () => void;
-};
-
 export function Menu() {
     const { i18n } = useTranslation();
 

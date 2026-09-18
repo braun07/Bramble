@@ -12,7 +12,7 @@ $background-colors: (
 );
 
 @each $class-name, $value in $background-colors {
-  @include generate-utility-class($class-name, (background-color: $value));
+  @include generate-utility-class($class-name, (background-color: $value), (hover));
 }
 
 $gradient-colors: (

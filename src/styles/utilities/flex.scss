@@ -11,6 +11,16 @@ $flex-directions: (
   @include generate-utility-class($class-name, (flex-direction: $value));
 }
 
+$flex-wrap: (
+  'wrap': wrap,
+  'wrap-reverse': wrap-reverse,
+  'nowrap': nowrap,
+);
+
+@each $class-name, $value in $flex-wrap {
+  @include generate-utility-class($class-name, (flex-wrap: $value));
+}
+
 $align-items: (
   'items-center': center,
   'items-start': start,

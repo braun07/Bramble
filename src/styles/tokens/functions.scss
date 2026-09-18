@@ -5,11 +5,23 @@
 $breakpoints: (
     sm: 576px,
     md: 768px,
-    lg: 992px,
+    lg: 1050px,
     xl: 1360px,
     xxl: 1536px,
     exl: 1900px
 );
+
+$state-variants: (
+    hover: ':hover',
+    focus: ':focus',
+    active: ':active'
+);
+
+@mixin -declare($properties) {
+    @each $prop, $val in $properties {
+        #{$prop}: #{$val};
+    }
+}
 
 @mixin respond($breakpoint) {
     @if map.has-key($breakpoints, $breakpoint) {
@@ -109,20 +121,28 @@ $breakpoints: (
 // ============================================================
 // $class-name -> ex: 'inline-flex'
 // $properties -> properties map, ex: (display: flex, flex-direction: row)
+// $states -> which state variants to generate, ex: (hover) or (hover, focus)
 
-
-@mixin generate-utility-class($class-name, $properties) {
+@mixin generate-utility-class($class-name, $properties, $states: ()) {
     .#{$class-name} {
-        @each $prop, $val in $properties {
-            #{$prop}: #{$val};
+        @include -declare($properties);
+    }
+
+    @each $state in $states {
+        .#{$state}\:#{$class-name}#{map.get($state-variants, $state)} {
+            @include -declare($properties);
         }
     }
 
     @each $bp, $bp-value in $breakpoints {
         @include respond($bp) {
             .#{$bp}\:#{$class-name} {
-                @each $prop, $val in $properties {
-                    #{$prop}: #{$val};
+                @include -declare($properties);
+            }
+
+            @each $state in $states {
+                .#{$bp}\:#{$state}\:#{$class-name}#{map.get($state-variants, $state)} {
+                    @include -declare($properties);
                 }
             }
         }
@@ -180,10 +200,10 @@ $breakpoints: (
     @each $name, $value in $colors {
         @include generate-utility-class('from-#{$name}', (
             --gradient-from: #{$value}
-        ));
+        ), (hover));
 
         @include generate-utility-class('to-#{$name}', (
             --gradient-to: #{$value}
-        ));
+        ), (hover));
     }
 }
