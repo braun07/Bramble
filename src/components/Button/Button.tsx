@@ -1,7 +1,7 @@
 import { cn } from "../../utils/cn";
 import styles from "./Button.module.scss";
 
-export type ButtonVariant = "primary" | "ghost";
+export type ButtonVariant = "primary" | "ghost" | "white";
 export type ButtonSize = "sm" | "md" | "lg";
 
 interface BaseProps {

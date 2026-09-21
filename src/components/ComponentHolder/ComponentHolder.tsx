@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import styles from "./ComponentHolder.module.scss";
 import { cn } from "../../utils/cn";
 
-interface ComponentHolderProps {
+export interface ComponentHolderProps {
     children?: ReactNode;
     title?: string;
 }
