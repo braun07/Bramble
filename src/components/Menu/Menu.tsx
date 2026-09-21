@@ -4,6 +4,8 @@ import components from '../../assets/components.svg';
 import contact from '../../assets/contact.svg';
 import { Button } from '../index.ts';
 import { useTranslation } from 'react-i18next';
+import styles from "./Menu.module.scss";
+import { cn } from '../../utils/cn.ts';
 
 export function Menu() {
     const { i18n } = useTranslation();
@@ -16,12 +18,12 @@ export function Menu() {
     return (
         <nav className="flex items-center justify-between w-100 px-30 md:px-60 xxl:px-120 py-30 fixed top-0 bg-blur index-2">
             <div className="flex gap-20 items-center">
-                <img src={heroImg} className="menu-icon" width="49" height="63" alt="Logo" />
+                <img src={heroImg} className={cn(styles.menuIcon)} width="49" height="63" alt="Logo" />
                 <span className="text-40 fw-700 hidden md:flex">Bramble</span>
             </div>
 
             <div className="flex gap-50 sm:gap-100 items-center">
-                <ul className="menu-links flex gap-30 sm:gap-40 items-center">
+                <ul className={cn("flex gap-30 sm:gap-40 items-center ", styles.menuLinks)}>
                     <li>
                         <a href="#home" className="flex"><img src={home} className="menu-nav-icon" width="39" height="29" alt="Home" /></a>
                     </li>

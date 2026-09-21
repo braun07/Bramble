@@ -1,4 +1,6 @@
 import React from "react";
+import styles from "./CodeWindow.module.scss";
+import { cn } from "../../utils/cn";
 
 export interface CodeWindowProps {
   tabText?: string;
@@ -144,12 +146,12 @@ export function CodeWindow({
   const lines = code.split("\n");
 
   return (
-    <div className={`relative flex-col code-window rounded-19 overflow-hidden bg-code-2 ${className}`}>
+    <div className={cn(`relative flex-col rounded-19 overflow-hidden bg-code-2 ${className}`, styles.codeWindow)}>
       <div className="flex items-center gap-12 px-16 py-17 bg-code-1 relative">
         <div className="flex gap-10">
-          <span className="code-window__dot dot-red" />
-          <span className="code-window__dot dot-yellow" />
-          <span className="code-window__dot dot-green" />
+          <span className={cn("dot-red ", styles.codeWindow__dot)}/>
+          <span className={cn("dot-yellow ", styles.codeWindow__dot)} />
+          <span className={cn("dot-green ", styles.codeWindow__dot)} />
         </div>
 
         <div className="flex items-center gap-45 ml-4 px-14 py-4 rounded-tl-8 rounded-tr-8 bg-code-2 text-12 absolute left-100 bottom-0">

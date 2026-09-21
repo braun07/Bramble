@@ -1,0 +1,15 @@
+.menuLinks {
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .menuIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menuLinks img {
+    width: auto;
+    height: 22px;
+  }
+}
