@@ -1,6 +1,8 @@
 @use "../tokens/functions" as *;
 
 $background-colors: (
+  'bg-white': #ffffff,
+  'bg-vibrant-dark': #505E63,
   'bg-bramble': var(--primary),
   'bg-bramble-2': var(--primary-2),
   'bg-base-1': var(--bg-base-1),

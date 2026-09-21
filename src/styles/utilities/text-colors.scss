@@ -11,6 +11,7 @@ $text-colors: (
   'code-blue-simbols': var(--code-blue-simbols),
   'code-text-number': var(--code-text-number),
   'text-primary': var(--text-primary),
+  'text-black': #000000
 );
 
 @each $class-name, $value in $text-colors {

@@ -1,4 +1,4 @@
-import { Button, Menu, CodeWindow, Footer } from '../components/index.ts';
+import { Button, Menu, CodeWindow, Footer, ComponentHolder } from '../components/index.ts';
 import { useTranslation } from 'react-i18next';
 import linkedinImg from '../assets/linkedin.png';
 import gitImg from '../assets/git.png';
@@ -43,7 +43,81 @@ function App() {
         <section id="components" className="flex flex-col gap-60 sm:gap-90 items-center">
           <h3 className="fw-600 text-26 lg:text-32 border-bramble border-solid border-bottom-3 line-h-180">{t("Components")}</h3>
 
-          <div className="flex bg-code-2 px-100 py-100 rounded-20 gap-40"></div>
+          <div className="flex items-center justify-center bg-code-2 py-20 px-20 sm:px-100 sm:py-100 rounded-15 gap-35 w-100 max-w-100 wrap component-listing overscroll-contain">
+            <ComponentHolder
+              title={t("Button")}
+            >
+              <Button
+                variant='white'
+                className='px-32 py-10 default-shadow'
+              >
+                {t("Button")}
+              </Button>
+            </ComponentHolder>
+            <ComponentHolder
+              title={t("Profile Display")}
+            >
+              <Button
+                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+              >
+                {t("Button")}
+              </Button>
+            </ComponentHolder>
+            <ComponentHolder
+              title={t("Alert")}
+            >
+              <Button
+                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+              >
+                {t("Button")}
+              </Button>
+            </ComponentHolder>
+            <ComponentHolder
+              title={t("Loading")}
+            >
+              <Button
+                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+              >
+                {t("Button")}
+              </Button>
+            </ComponentHolder>
+            <ComponentHolder
+              title={t("Action Button")}
+            >
+              <Button
+                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+              >
+                {t("Button")}
+              </Button>
+            </ComponentHolder>
+            <ComponentHolder
+              title={t("Toggle")}
+            >
+              <Button
+                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+              >
+                {t("Button")}
+              </Button>
+            </ComponentHolder>
+            <ComponentHolder
+              title={t("Checkbox")}
+            >
+              <Button
+                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+              >
+                {t("Button")}
+              </Button>
+            </ComponentHolder>
+            <ComponentHolder
+              title={t("Input")}
+            >
+              <Button
+                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+              >
+                {t("Button")}
+              </Button>
+            </ComponentHolder>
+          </div>
         </section>
         <section id="contact" className="flex flex-col gap-60 sm:gap-90 items-center w-100">
           <h3 className="fw-600 text-26 lg:text-32 border-bramble border-solid border-bottom-3 line-h-180">{t("Contact")} <span className="text-bramble">{t("Us")}</span></h3>

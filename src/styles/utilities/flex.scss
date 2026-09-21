@@ -31,3 +31,5 @@ $align-items: (
 @each $class-name, $value in $align-items {
   @include generate-utility-class($class-name, (align-items: $value));
 }
+
+@include generate-utility-class('flex-grow', (flex-grow: grow));

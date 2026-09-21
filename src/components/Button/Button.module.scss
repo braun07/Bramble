@@ -18,6 +18,13 @@
   }
 }
 
+.white {
+  background: var(--bg-white);
+  color: var(--text-black);
+  width: fit-content;
+  border-radius: 4px;
+}
+
 .primary {
   background: var(--color-primary);
   color: var(--text-primary);

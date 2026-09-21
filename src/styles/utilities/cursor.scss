@@ -12,5 +12,5 @@ $cursors: (
 );
 
 @each $class-name, $value in $cursors {
-    @include generate-utility-class($class-name, (cursor: $value));
+    @include generate-utility-class($class-name, (cursor: $value), (hover));
 }

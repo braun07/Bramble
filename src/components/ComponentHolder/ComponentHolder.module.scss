@@ -1,0 +1,21 @@
+.CHolder {
+  &_Width {
+    flex: 1 1 340px;
+    min-width: 340px;
+    max-width: 400px;
+
+  }
+
+  &_Height {
+    height: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .CHolder {
+    &_Width {
+      flex: 1 1 280px;
+      min-width: 280px;
+    }
+  }
+}
