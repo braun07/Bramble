@@ -1,28 +1,30 @@
 @use "../tokens/functions" as *;
 
-// padding classes
-@include generate-spacing-batch((
-  'p': (property: padding, step: 1, max: 200),
-  'pt': (property: padding-top, step: 1, max: 200),
-  'pb': (property: padding-bottom, step: 1, max: 200),
-  'pl': (property: padding-left, step: 1, max: 200),
-  'pr': (property: padding-right, step: 1, max: 200),
-  'px': (property: (padding-left, padding-right), step: 1, max: 200),
-  'py': (property: (padding-top, padding-bottom), step: 1, max: 200)
-));
+@include generate-spacing-batch(
+  (
+    "p": (property: padding, step: 1, max: 200),
+    "pt": (property: padding-top, step: 1, max: 200),
+    "pb": (property: padding-bottom, step: 1, max: 200),
+    "pl": (property: padding-left, step: 1, max: 200),
+    "pr": (property: padding-right, step: 1, max: 200),
+    "px": (property: (padding-left, padding-right), step: 1, max: 200),
+    "py": (property: (padding-top, padding-bottom), step: 1, max: 200),
+  )
+);
 
-// margin classes
-@include generate-spacing-batch((
-  'm': (property: margin, step: 1, max: 200),
-  'mt': (property: margin-top, step: 1, max: 200),
-  'mb': (property: margin-bottom, step: 1, max: 200),
-  'ml': (property: margin-left, step: 1, max: 200),
-  'mr': (property: margin-right, step: 1, max: 200),
-  'mx': (property: (margin-left, margin-right), step: 1, max: 200),
-  'my': (property: (margin-top, margin-bottom), step: 1, max: 200)
-));
+@include generate-spacing-batch(
+  (
+    "m": (property: margin, step: 1, max: 200),
+    "mt": (property: margin-top, step: 1, max: 200),
+    "mb": (property: margin-bottom, step: 1, max: 200),
+    "ml": (property: margin-left, step: 1, max: 200),
+    "mr": (property: margin-right, step: 1, max: 200),
+    "mx": (property: (margin-left, margin-right), step: 1, max: 200),
+    "my": (property: (margin-top, margin-bottom), step: 1, max: 200),
+  )
+);
 
-@include generate-utility-class('m-auto', (margin: auto));
-@include generate-utility-class('mt-auto', (margin-top: auto));
-@include generate-utility-class('mb-auto', (margin-bottom: auto));
-@include generate-spacing-classes('gap', 'gap', 1, 200);
+@include generate-utility-class("m-auto", (margin: auto));
+@include generate-utility-class("mt-auto", (margin-top: auto));
+@include generate-utility-class("mb-auto", (margin-bottom: auto));
+@include generate-spacing-classes("gap", "gap", 1, 200);

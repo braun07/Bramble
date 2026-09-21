@@ -1,10 +1,11 @@
 @use "../tokens/functions" as *;
 
 $border-colors: (
-  'border-bramble': var(--primary),
-  'border-base-1': var(--bg-base-1),
-  'border-code-1': var(--code-bg-1),
-  'border-code-2': var(--code-bg-2),
+  "border-bramble": var(--primary),
+  "border-white": var(--bg-white),
+  "border-base-1": var(--bg-base-1),
+  "border-code-1": var(--code-bg-1),
+  "border-code-2": var(--code-bg-2),
 );
 
 @each $class-name, $value in $border-colors {
@@ -12,19 +13,18 @@ $border-colors: (
 }
 
 $border-style: (
-    'border-none': none,
-    'border-solid': solid,
-    'border-dashed': dashed,
-    'border-dotted': dotted,
+  "border-none": none,
+  "border-solid": solid,
+  "border-dashed": dashed,
+  "border-dotted": dotted,
 );
 
 @each $class-name, $value in $border-style {
   @include generate-utility-class($class-name, (border-style: $value));
 }
 
-@include generate-spacing-classes('gap', 'gap', 1, 200);
-@include generate-spacing-classes('border', 'border-width', 1, 200);
-@include generate-spacing-classes('border-bottom', 'border-bottom-width', 1, 200, px, ( border-width: 0 ));
-@include generate-spacing-classes('border-top', 'border-top-width', 1, 200, px, ( border-width: 0 ));
-@include generate-spacing-classes('border-right', 'border-right-width', 1, 200, px, ( border-width: 0 ));
-@include generate-spacing-classes('border-left', 'border-left-width', 1, 200, px, ( border-width: 0 ));
+@include generate-spacing-classes("border", "border-width", 1, 200);
+@include generate-spacing-classes("border-bottom", "border-bottom-width", 1, 200, px, (border-width: 0));
+@include generate-spacing-classes("border-top", "border-top-width", 1, 200, px, (border-width: 0));
+@include generate-spacing-classes("border-right", "border-right-width", 1, 200, px, (border-width: 0));
+@include generate-spacing-classes("border-left", "border-left-width", 1, 200, px, (border-width: 0));

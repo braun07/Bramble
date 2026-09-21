@@ -1,21 +1,19 @@
-.CHolder {
-  &_Width {
-    flex: 1 1 340px;
-    min-width: 340px;
-    max-width: 400px;
+@use "sass:map";
+@use "../../styles/tokens/functions" as *;
 
-  }
-
-  &_Height {
-    height: 150px;
-  }
+.componentHolder {
+  flex: 1 1 340px;
+  min-width: 340px;
+  max-width: 400px;
 }
 
-@media (max-width: 576px) {
-  .CHolder {
-    &_Width {
-      flex: 1 1 280px;
-      min-width: 280px;
-    }
+.componentHolderPreview {
+  height: 150px;
+}
+
+@media (max-width: #{map.get($breakpoints, sm) - 1px}) {
+  .componentHolder {
+    flex: 1 1 280px;
+    min-width: 280px;
   }
 }

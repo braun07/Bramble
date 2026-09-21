@@ -1,0 +1,39 @@
+.input {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  font-weight: 600;
+  outline: none;
+  transition:
+    background-color 150ms ease,
+    transform 150ms ease;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.primary {
+  background: var(--primary);
+  color: var(--text-primary);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--primary);
+}
+
+.sm {
+  height: 32px;
+  padding: 0 12px;
+}
+
+.md {
+  height: 40px;
+  padding: 0 16px;
+}
+
+.lg {
+  height: 48px;
+  padding: 0 20px;
+}

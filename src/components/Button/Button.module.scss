@@ -26,13 +26,13 @@
 }
 
 .primary {
-  background: var(--color-primary);
+  background: transparent;
   color: var(--text-primary);
 }
 
 .ghost {
   background: transparent;
-  color: var(--color-primary);
+  color: var(--text-primary);
 }
 
 .sm {

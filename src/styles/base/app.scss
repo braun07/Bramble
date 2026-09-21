@@ -1,5 +1,7 @@
+@use "sass:map";
+@use "../tokens/functions" as *;
 
-@media (max-width: 768px) {
+@media (max-width: #{map.get($breakpoints, md) - 1px}) {
   .contact-us-container img {
     width: 20px;
     height: auto;
@@ -10,7 +12,7 @@
   box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.25);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: #{map.get($breakpoints, lg) - 1px}) {
   .component-listing {
     max-height: 700px;
     overflow-y: auto;
@@ -57,4 +59,8 @@
 
 #components {
   scroll-margin-top: 100px;
+}
+
+#contact {
+  scroll-margin-top: 50px;
 }

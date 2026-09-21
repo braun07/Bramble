@@ -1,17 +1,18 @@
 @use "../tokens/functions" as *;
 
 $text-colors: (
-  'text-bramble': var(--primary),
-  'code-comment': var(--code-comment),
-  'code-purple': var(--code-purple),
-  'code-yellow-simbol': var(--code-yellow-simbol),
-  'code-text': var(--code-text),
-  'code-yellow-text': var(--code-yellow-text),
-  'code-pink': var(--code-pink),
-  'code-blue-simbols': var(--code-blue-simbols),
-  'code-text-number': var(--code-text-number),
-  'text-primary': var(--text-primary),
-  'text-black': #000000
+  "text-bramble": var(--primary),
+  "code-comment": var(--code-comment),
+  "code-purple": var(--code-purple),
+  "code-yellow-symbol": var(--code-yellow-symbol),
+  "code-text": var(--code-text),
+  "code-yellow-text": var(--code-yellow-text),
+  "code-pink": var(--code-pink),
+  "code-blue-symbols": var(--code-blue-symbols),
+  "code-text-number": var(--code-text-number),
+  "text-primary": var(--text-primary),
+  "text-white": var(--text-primary),
+  "text-black": var(--text-black),
 );
 
 @each $class-name, $value in $text-colors {

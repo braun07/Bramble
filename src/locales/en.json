@@ -1,21 +1,43 @@
 {
-    "Build": "Build",
+  "hero": {
+    "build": "Build",
     "once": "once",
-    "Scale": "Scale",
+    "scale": "Scale",
     "everywhere": "everywhere",
-    "Bramble_provides": "Bramble provides a collection of reusable React components, utility classes, and styling foundations that simplify the development of modern web applications while promoting consistency across products and teams.",
-    "View": "View",
-    "Components": "Components",
-    "Contact": "Contact",
-    "Us": "Us",
-    "Button": "Button",
-    "Profile Display": "Profile Display",
-    "Alert": "Alert",
-    "Loading": "Loading",
-    "Action Button": "Action Button",
-    "Toggle": "Toggle",
-    "Checkbox": "Checkbox",
-    "Input": "Input",
-    "footer.copyright": "All rights reserved",
-    "Copied": "Copied"
+    "description": "Bramble provides a collection of reusable React components, utility classes, and styling foundations that simplify the development of modern web applications while promoting consistency across products and teams."
+  },
+  "nav": {
+    "logoAlt": "Bramble logo",
+    "home": "Home",
+    "components": "Components",
+    "contact": "Contact"
+  },
+  "actions": {
+    "viewComponents": "View Components"
+  },
+  "components": {
+    "title": "Components",
+    "button": "Button",
+    "profileDisplay": "Profile Display",
+    "alert": "Alert",
+    "loading": "Loading",
+    "actionButton": "Action Button",
+    "toggle": "Toggle",
+    "checkbox": "Checkbox",
+    "input": "Input"
+  },
+  "contact": {
+    "title": "Contact",
+    "us": "Us",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "Email"
+  },
+  "footer": {
+    "brand": "© Braun Design.",
+    "copyright": "All rights reserved"
+  },
+  "common": {
+    "copied": "Copied"
+  }
 }

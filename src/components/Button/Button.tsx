@@ -1,3 +1,4 @@
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { cn } from "../../utils/cn";
 import styles from "./Button.module.scss";
 
@@ -10,10 +11,10 @@ interface BaseProps {
 }
 
 type ButtonAsButton = BaseProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined };
+  ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined };
 
 type ButtonAsLink = BaseProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
+  AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
 
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
 

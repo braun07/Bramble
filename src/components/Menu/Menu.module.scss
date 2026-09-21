@@ -1,14 +1,21 @@
+@use "sass:map";
+@use "../../styles/tokens/functions" as *;
+
 .menuLinks {
   list-style: none;
 }
 
-@media (max-width: 768px) {
+.languageButton {
+  width: 70px;
+}
+
+@media (max-width: #{map.get($breakpoints, md) - 1px}) {
   .menuIcon {
     width: 40px;
     height: 40px;
   }
 
-  .menuLinks img {
+  .menuNavIcon {
     width: auto;
     height: 22px;
   }

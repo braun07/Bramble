@@ -1,22 +1,43 @@
 {
-    "Build": "Crie",
+  "hero": {
+    "build": "Crie",
     "once": "uma vez",
-    "Scale": "Escale",
+    "scale": "Escale",
     "everywhere": "onde quiser",
-    "Bramble_provides": "Bramble oferece uma coleção de componentes React, classes utilitárias e fundamentos de estilo que simplificam o desenvolvimento de websites modernos, ao mesmo tempo em que promove a consistência entre produtos e equipes.",
-    "View Components": "Ver Componentes",
-    "View": "Veja",
-    "Components": "Componentes",
-    "Contact": "Fale",
-    "Us": "Conosco",
-    "Button": "Botão",
-    "Profile Display": "Cartão de perfil",
-    "Alert": "Alerta",
-    "Loading": "Carregamento",
-    "Action Button": "Botão de Ação",
-    "Toggle": "Toggle",
-    "Checkbox": "Checkbox",
-    "Input": "Input",
-    "footer.copyright": "Todos os direitos reservados",
-    "Copied": "Copiado"
+    "description": "Bramble oferece uma coleção de componentes React, classes utilitárias e fundamentos de estilo que simplificam o desenvolvimento de websites modernos, ao mesmo tempo em que promove a consistência entre produtos e equipes."
+  },
+  "nav": {
+    "logoAlt": "Logo do Bramble",
+    "home": "Início",
+    "components": "Componentes",
+    "contact": "Contato"
+  },
+  "actions": {
+    "viewComponents": "Ver Componentes"
+  },
+  "components": {
+    "title": "Componentes",
+    "button": "Botão",
+    "profileDisplay": "Cartão de perfil",
+    "alert": "Alerta",
+    "loading": "Carregamento",
+    "actionButton": "Botão de ação",
+    "toggle": "Alternador",
+    "checkbox": "Caixa de seleção",
+    "input": "Campo de texto"
+  },
+  "contact": {
+    "title": "Fale",
+    "us": "Conosco",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "E-mail"
+  },
+  "footer": {
+    "brand": "© Braun Design.",
+    "copyright": "Todos os direitos reservados"
+  },
+  "common": {
+    "copied": "Copiado"
+  }
 }

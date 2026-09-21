@@ -1,10 +1,18 @@
 .codeWindow {
   min-width: 777px;
   box-shadow: 0 0 89.5px -39px var(--primary);
+}
 
-  &__dot {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-  }
+.codeWindowDot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.codeWindowLine {
+  white-space: pre;
+}
+
+.codeWindowLineNumber {
+  width: 32px;
 }

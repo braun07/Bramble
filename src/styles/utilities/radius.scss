@@ -1,7 +1,7 @@
 @use "../tokens/functions" as *;
 
-@include generate-spacing-classes('rounded', 'border-radius', 1, 99);
-@include generate-spacing-classes('rounded-tl', 'border-top-left-radius', 1, 99);
-@include generate-spacing-classes('rounded-tr', 'border-top-right-radius', 1, 99);
-@include generate-spacing-classes('rounded-bl', 'border-bottom-left-radius', 1, 99);
-@include generate-spacing-classes('rounded-br', 'border-bottom-right-radius', 1, 99);
+@include generate-spacing-classes("rounded", "border-radius", 1, 99);
+@include generate-spacing-classes("rounded-tl", "border-top-left-radius", 1, 99);
+@include generate-spacing-classes("rounded-tr", "border-top-right-radius", 1, 99);
+@include generate-spacing-classes("rounded-bl", "border-bottom-left-radius", 1, 99);
+@include generate-spacing-classes("rounded-br", "border-bottom-right-radius", 1, 99);

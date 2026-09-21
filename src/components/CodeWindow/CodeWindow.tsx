@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./CodeWindow.module.scss";
+import type { ReactNode } from "react";
 import { cn } from "../../utils/cn";
+import styles from "./CodeWindow.module.scss";
 
 export interface CodeWindowProps {
   tabText?: string;
@@ -10,7 +10,7 @@ export interface CodeWindowProps {
 }
 
 const DEFAULT_CODE = `// pseudocode
-import { Button } from '../components/index.ts'
+import { Button } from "../components"
 
 function App() {
 
@@ -62,7 +62,7 @@ const TOKEN_REGEX = new RegExp(
 );
 
 function renderTokenizedLine(line: string, key: number) {
-  const nodes: React.ReactNode[] = [];
+  const nodes: ReactNode[] = [];
 
   let lastIndex = 0;
   let match: RegExpExecArray | null;
@@ -93,15 +93,16 @@ function renderTokenizedLine(line: string, key: number) {
         nodes.push(
           <span key={`${key}-${tokenKey++}`} className="text-primary">
             {symbol}
-          </span>
+          </span>,
         );
 
         nodes.push(
-          <span key={`${key}-${tokenKey++}`} className={
-            isComponent ? "code-yellow-text" : "code-purple"
-          }>
+          <span
+            key={`${key}-${tokenKey++}`}
+            className={isComponent ? "code-yellow-text" : "code-purple"}
+          >
             {tagName}
-          </span>
+          </span>,
         );
 
         lastIndex = TOKEN_REGEX.lastIndex;
@@ -114,7 +115,7 @@ function renderTokenizedLine(line: string, key: number) {
     } else if (keyword) {
       className = "code-purple";
     } else if (brace) {
-      className = "code-yellow-simbol";
+      className = "code-yellow-symbol";
     }
 
     nodes.push(
@@ -131,7 +132,7 @@ function renderTokenizedLine(line: string, key: number) {
   }
 
   return (
-    <div key={key} className="code-window-line">
+    <div key={key} className={styles.codeWindowLine}>
       {nodes.length > 0 ? nodes : "\u00A0"}
     </div>
   );
@@ -140,18 +141,24 @@ function renderTokenizedLine(line: string, key: number) {
 export function CodeWindow({
   tabText = "pseudo_code.ts",
   code = DEFAULT_CODE,
-  className = "",
+  className,
   showLineNumbers = true,
 }: CodeWindowProps) {
   const lines = code.split("\n");
 
   return (
-    <div className={cn(`relative flex-col rounded-19 overflow-hidden bg-code-2 ${className}`, styles.codeWindow)}>
+    <div
+      className={cn(
+        "relative flex-col rounded-19 overflow-hidden bg-code-2",
+        styles.codeWindow,
+        className,
+      )}
+    >
       <div className="flex items-center gap-12 px-16 py-17 bg-code-1 relative">
         <div className="flex gap-10">
-          <span className={cn("dot-red ", styles.codeWindow__dot)}/>
-          <span className={cn("dot-yellow ", styles.codeWindow__dot)} />
-          <span className={cn("dot-green ", styles.codeWindow__dot)} />
+          <span className={cn("dot-red", styles.codeWindowDot)} />
+          <span className={cn("dot-yellow", styles.codeWindowDot)} />
+          <span className={cn("dot-green", styles.codeWindowDot)} />
         </div>
 
         <div className="flex items-center gap-45 ml-4 px-14 py-4 rounded-tl-8 rounded-tr-8 bg-code-2 text-12 absolute left-100 bottom-0">
@@ -160,26 +167,23 @@ export function CodeWindow({
         </div>
       </div>
 
-      <div
-        className={`px-20 py-24 text-primary line-h-140 text-19 flex flex-col ${showLineNumbers ? "code-window__body--numbers" : "code-window__body--numbers-hidden"}`}
-      >
+      <div className="px-20 py-24 text-primary line-h-140 text-19 flex flex-col">
         {showLineNumbers
           ? lines.map((line, index) => (
-            <div key={index} className="flex w-max">
-              <span className="mr-16 code-text-number align-center" style={{ width: "32px" }}>
-                {index + 1}
-              </span>
-
-              <div className="code-window__line" style={{ whiteSpace: "pre" }}>
-                {renderTokenizedLine(line, index)}
+              <div key={index} className="flex w-max">
+                <span className={cn("mr-16 code-text-number align-center", styles.codeWindowLineNumber)}>
+                  {index + 1}
+                </span>
+                <div className={styles.codeWindowLine}>
+                  {renderTokenizedLine(line, index)}
+                </div>
               </div>
-            </div>
-          ))
+            ))
           : lines.map((line, index) => (
-            <div key={index} className="code-window__line" style={{ whiteSpace: "pre" }}>
-              {line || "\u00A0"}
-            </div>
-          ))}
+              <div key={index} className={styles.codeWindowLine}>
+                {line || "\u00A0"}
+              </div>
+            ))}
       </div>
     </div>
   );

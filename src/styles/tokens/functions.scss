@@ -3,80 +3,78 @@
 @use "sass:meta";
 
 $breakpoints: (
-    sm: 576px,
-    md: 768px,
-    lg: 1050px,
-    xl: 1360px,
-    xxl: 1536px,
-    exl: 1900px
+  sm: 576px,
+  md: 768px,
+  lg: 1050px,
+  xl: 1360px,
+  xxl: 1536px,
+  exl: 1900px,
 );
 
 $state-variants: (
-    hover: ':hover',
-    focus: ':focus',
-    active: ':active'
+  hover: ":hover",
+  focus: ":focus",
+  active: ":active",
 );
 
 @mixin -declare($properties) {
-    @each $prop, $val in $properties {
-        #{$prop}: #{$val};
-    }
+  @each $prop, $val in $properties {
+    #{$prop}: #{$val};
+  }
 }
 
 @mixin respond($breakpoint) {
-    @if map.has-key($breakpoints, $breakpoint) {
-        @media (min-width: map.get($breakpoints, $breakpoint)) {
-            @content;
-        }
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
     }
-
-    @else {
-        @warn "Breakpoint `#{$breakpoint}` doesn't exist in $breakpoints.";
-    }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` doesn't exist in $breakpoints.";
+  }
 }
 
 // ============================================================
 // Number Class Generator (ex: m-1, m-2 ... m-10)
 // ============================================================
-// $prefix     -> ex: 'm-', 'p-', 'gap-'
-// $property   -> CSS property, ex: 'margin', 'padding'
+// $prefix     -> ex: "m-", "p-", "gap-"
+// $property   -> CSS property, ex: "margin", "padding"
 // $step       -> how many steps does it takes to the next class to generate (1, 2, 5...)
 // $max        -> max value of the class to generate (ex: 10, 20, 100...)
 // $unit       -> final unit (rem, px, em...)
 @mixin generate-spacing-classes($prefix, $property, $step: 1, $max: 10, $unit: px, $reset-properties: null) {
-    $count: math.floor(math.div($max, $step));
+  $count: math.floor(math.div($max, $step));
 
-    @for $i from 0 through $count {
+  @for $i from 0 through $count {
+    $value: $i * $step;
+
+    .#{$prefix}-#{$value} {
+      @if $reset-properties != null {
+        @each $reset-property, $reset-value in $reset-properties {
+          #{$reset-property}: #{$reset-value};
+        }
+      }
+
+      #{$property}: #{$value}#{$unit};
+    }
+  }
+
+  @each $bp, $bp-value in $breakpoints {
+    @include respond($bp) {
+      @for $i from 1 through $count {
         $value: $i * $step;
 
-        .#{$prefix}-#{$value} {
-            @if $reset-properties != null {
-                @each $reset-property, $reset-value in $reset-properties {
-                    #{$reset-property}: #{$reset-value};
-                }
+        .#{$bp}\:#{$prefix}-#{$value} {
+          @if $reset-properties != null {
+            @each $reset-property, $reset-value in $reset-properties {
+              #{$reset-property}: #{$reset-value};
             }
+          }
 
-            #{$property}: #{$value}#{$unit};
+          #{$property}: #{$value}#{$unit};
         }
+      }
     }
-
-    @each $bp, $bp-value in $breakpoints {
-        @include respond($bp) {
-            @for $i from 1 through $count {
-                $value: $i * $step;
-
-                .#{$bp}\:#{$prefix}-#{$value} {
-                    @if $reset-properties != null {
-                        @each $reset-property, $reset-value in $reset-properties {
-                            #{$reset-property}: #{$reset-value};
-                        }
-                    }
-
-                    #{$property}: #{$value}#{$unit};
-                }
-            }
-        }
-    }
+  }
 }
 
 // ============================================================
@@ -87,34 +85,32 @@ $state-variants: (
 // $prefix     -> ex: 'px-', 'py-'
 // $properties -> properties map, ex: (padding-left, padding-right)
 @mixin generate-spacing-classes-multi($prefix, $properties, $step: 1, $max: 10, $unit: px) {
-    $count: math.floor(math.div($max, $step));
+  $count: math.floor(math.div($max, $step));
 
-    @for $i from 1 through $count {
+  @for $i from 1 through $count {
+    $value: $i * $step;
+
+    .#{$prefix}-#{$value} {
+      @each $property in $properties {
+        #{$property}: #{$value}#{$unit};
+      }
+    }
+  }
+
+  @each $bp, $bp-value in $breakpoints {
+    @include respond($bp) {
+      @for $i from 1 through $count {
         $value: $i * $step;
 
-        .#{$prefix}-#{$value} {
-            @each $property in $properties {
-                #{$property}: #{$value}#{$unit};
-            }
+        .#{$bp}\:#{$prefix}-#{$value} {
+          @each $property in $properties {
+            #{$property}: #{$value}#{$unit};
+          }
         }
+      }
     }
-
-    @each $bp, $bp-value in $breakpoints {
-        @include respond($bp) {
-            @for $i from 1 through $count {
-                $value: $i * $step;
-
-                .#{$bp}\:#{$prefix}-#{$value} {
-                    @each $property in $properties {
-                        #{$property}: #{$value}#{$unit};
-                    }
-                }
-            }
-        }
-    }
+  }
 }
-
-
 
 // ============================================================
 // Multiple Properties Class Generator (ex: inline-flex, flex-col, etc)
@@ -124,33 +120,33 @@ $state-variants: (
 // $states -> which state variants to generate, ex: (hover) or (hover, focus)
 
 @mixin generate-utility-class($class-name, $properties, $states: ()) {
-    .#{$class-name} {
+  .#{$class-name} {
+    @include -declare($properties);
+  }
+
+  @each $state in $states {
+    .#{$state}\:#{$class-name}#{map.get($state-variants, $state)} {
+      @include -declare($properties);
+    }
+  }
+
+  @each $bp, $bp-value in $breakpoints {
+    @include respond($bp) {
+      .#{$bp}\:#{$class-name} {
         @include -declare($properties);
-    }
+      }
 
-    @each $state in $states {
-        .#{$state}\:#{$class-name}#{map.get($state-variants, $state)} {
-            @include -declare($properties);
+      @each $state in $states {
+        .#{$bp}\:#{$state}\:#{$class-name}#{map.get($state-variants, $state)} {
+          @include -declare($properties);
         }
+      }
     }
-
-    @each $bp, $bp-value in $breakpoints {
-        @include respond($bp) {
-            .#{$bp}\:#{$class-name} {
-                @include -declare($properties);
-            }
-
-            @each $state in $states {
-                .#{$bp}\:#{$state}\:#{$class-name}#{map.get($state-variants, $state)} {
-                    @include -declare($properties);
-                }
-            }
-        }
-    }
+  }
 }
 
 // ============================================================
-// 4. Batch Generator for easier / faster use
+// Batch Generator
 // ============================================================
 // $config -> includes a map of prefixes and their settings, ex: (
 // (
@@ -160,19 +156,26 @@ $state-variants: (
 // )
 
 @mixin generate-spacing-batch($config) {
-    @each $prefix, $settings in $config {
-        $property: map.get($settings, property);
+  @each $prefix, $settings in $config {
+    $property: map.get($settings, property);
 
-        @if meta.type-of($property)=='list' {
-            @include generate-spacing-classes-multi($prefix, $property, map.get($settings, step), map.get($settings, max));
-        }
-
-        @else {
-            @include generate-spacing-classes($prefix, $property, map.get($settings, step), map.get($settings, max));
-        }
+    @if meta.type-of($property) == "list" {
+      @include generate-spacing-classes-multi(
+        $prefix,
+        $property,
+        map.get($settings, step),
+        map.get($settings, max)
+      );
+    } @else {
+      @include generate-spacing-classes(
+        $prefix,
+        $property,
+        map.get($settings, step),
+        map.get($settings, max)
+      );
     }
+  }
 }
-
 
 // ============================================================
 // 5. Gradient Class Generator
@@ -180,30 +183,41 @@ $state-variants: (
 // $colors -> map of name: value, ex: (red: #ef4444, blue: #3b82f6)
 
 @mixin generate-gradient-classes($colors) {
-    $directions: (
-        'bg-gradient-to-r': to right,
-        'bg-gradient-to-l': to left,
-        'bg-gradient-to-t': to top,
-        'bg-gradient-to-b': to bottom,
-        'bg-gradient-to-tr': to top right,
-        'bg-gradient-to-br': to bottom right,
-        'bg-gradient-to-tl': to top left,
-        'bg-gradient-to-bl': to bottom left,
+  $directions: (
+    "bg-gradient-to-r": to right,
+    "bg-gradient-to-l": to left,
+    "bg-gradient-to-t": to top,
+    "bg-gradient-to-b": to bottom,
+    "bg-gradient-to-tr": to top right,
+    "bg-gradient-to-br": to bottom right,
+    "bg-gradient-to-tl": to top left,
+    "bg-gradient-to-bl": to bottom left,
+  );
+
+  @each $name, $dir in $directions {
+    @include generate-utility-class(
+      $name,
+      (
+        background-image: linear-gradient(#{$dir}, var(--gradient-from, transparent), var(--gradient-to, transparent)),
+      )
+    );
+  }
+
+  @each $name, $value in $colors {
+    @include generate-utility-class(
+      "from-#{$name}",
+      (
+        --gradient-from: #{$value},
+      ),
+      (hover)
     );
 
-    @each $name, $dir in $directions {
-        @include generate-utility-class($name, (
-            background-image: linear-gradient(#{$dir}, var(--gradient-from, transparent), var(--gradient-to, transparent))
-        ));
-    }
-
-    @each $name, $value in $colors {
-        @include generate-utility-class('from-#{$name}', (
-            --gradient-from: #{$value}
-        ), (hover));
-
-        @include generate-utility-class('to-#{$name}', (
-            --gradient-to: #{$value}
-        ), (hover));
-    }
+    @include generate-utility-class(
+      "to-#{$name}",
+      (
+        --gradient-to: #{$value},
+      ),
+      (hover)
+    );
+  }
 }

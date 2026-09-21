@@ -1,16 +1,16 @@
 @use "../tokens/functions" as *;
 
 $background-colors: (
-  'bg-white': #ffffff,
-  'bg-vibrant-dark': #505E63,
-  'bg-bramble': var(--primary),
-  'bg-bramble-2': var(--primary-2),
-  'bg-base-1': var(--bg-base-1),
-  'bg-code-1': var(--code-bg-1),
-  'bg-code-2': var(--code-bg-2),
-  'dot-red': #DF6C62,
-  'dot-yellow': #ECBB55,
-  'dot-green': #56B855,
+  "bg-white": var(--bg-white),
+  "bg-vibrant-dark": #505e63,
+  "bg-bramble": var(--primary),
+  "bg-bramble-2": var(--primary-2),
+  "bg-base-1": var(--bg-base-1),
+  "bg-code-1": var(--code-bg-1),
+  "bg-code-2": var(--code-bg-2),
+  "dot-red": #df6c62,
+  "dot-yellow": #ecbb55,
+  "dot-green": #56b855,
 );
 
 @each $class-name, $value in $background-colors {
@@ -18,13 +18,19 @@ $background-colors: (
 }
 
 $gradient-colors: (
-    bramble: var(--primary),
-    bramble-2: var(--primary-2),
-    base-1: var(--bg-base-1),
-    code-1: var(--code-bg-1),
-    code-2: var(--code-bg-2),
+  bramble: var(--primary),
+  bramble-2: var(--primary-2),
+  base-1: var(--bg-base-1),
+  code-1: var(--code-bg-1),
+  code-2: var(--code-bg-2),
 );
 
 @include generate-gradient-classes($gradient-colors);
 
-@include generate-utility-class('bg-blur', ( background-color: #16171dd0, backdrop-filter: blur(10px)));
+@include generate-utility-class(
+  "bg-blur",
+  (
+    background-color: #16171dd0,
+    backdrop-filter: blur(10px),
+  )
+);

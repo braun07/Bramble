@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@use "sass:map";
+@use "../tokens/functions" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 
 :root {
   --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-
-  --sans: "Montserrat", system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: "Montserrat", system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: "Montserrat", system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: "Montserrat", system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: "Montserrat", ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
@@ -17,7 +19,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
+  @media (max-width: #{map.get($breakpoints, lg) - 1px}) {
     font-size: 16px;
   }
 }

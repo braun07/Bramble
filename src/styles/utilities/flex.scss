@@ -1,10 +1,10 @@
 @use "../tokens/functions" as *;
 
 $flex-directions: (
-  'flex-col': column,
-  'flex-col-reverse': column-reverse,
-  'flex-row': row,
-  'flex-row-reverse': row-reverse
+  "flex-col": column,
+  "flex-col-reverse": column-reverse,
+  "flex-row": row,
+  "flex-row-reverse": row-reverse,
 );
 
 @each $class-name, $value in $flex-directions {
@@ -12,9 +12,9 @@ $flex-directions: (
 }
 
 $flex-wrap: (
-  'wrap': wrap,
-  'wrap-reverse': wrap-reverse,
-  'nowrap': nowrap,
+  "wrap": wrap,
+  "wrap-reverse": wrap-reverse,
+  "nowrap": nowrap,
 );
 
 @each $class-name, $value in $flex-wrap {
@@ -22,14 +22,14 @@ $flex-wrap: (
 }
 
 $align-items: (
-  'items-center': center,
-  'items-start': start,
-  'items-end': end,
-  'items-stretch': stretch,
+  "items-center": center,
+  "items-start": start,
+  "items-end": end,
+  "items-stretch": stretch,
 );
 
 @each $class-name, $value in $align-items {
   @include generate-utility-class($class-name, (align-items: $value));
 }
 
-@include generate-utility-class('flex-grow', (flex-grow: grow));
+@include generate-utility-class("flex-grow", (flex-grow: 1));

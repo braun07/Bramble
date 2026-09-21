@@ -1,6 +1,4 @@
 export * from "./Button";
-export * from "./Input";
-export * from "./Menu";
 export * from "./CodeWindow";
-export * from "./Footer";
 export * from "./ComponentHolder";
+export * from "./Input";

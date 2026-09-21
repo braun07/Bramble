@@ -1,10 +1,10 @@
 @use "../tokens/functions" as *;
 
 $overflows: (
-  'overflow-visible': visible,
-  'overflow-hidden': hidden,
-  'overflow-scroll': scroll,
-  'overflow-auto': auto
+  "overflow-visible": visible,
+  "overflow-hidden": hidden,
+  "overflow-scroll": scroll,
+  "overflow-auto": auto,
 );
 
 @each $class-name, $value in $overflows {
@@ -12,10 +12,10 @@ $overflows: (
 }
 
 $overflows-x: (
-  'overflow-x-visible': visible,
-  'overflow-x-hidden': hidden,
-  'overflow-x-scroll': scroll,
-  'overflow-x-auto': auto
+  "overflow-x-visible": visible,
+  "overflow-x-hidden": hidden,
+  "overflow-x-scroll": scroll,
+  "overflow-x-auto": auto,
 );
 
 @each $class-name, $value in $overflows-x {
@@ -23,10 +23,10 @@ $overflows-x: (
 }
 
 $overflows-y: (
-  'overflow-y-visible': visible,
-  'overflow-y-hidden': hidden,
-  'overflow-y-scroll': scroll,
-  'overflow-y-auto': auto
+  "overflow-y-visible": visible,
+  "overflow-y-hidden": hidden,
+  "overflow-y-scroll": scroll,
+  "overflow-y-auto": auto,
 );
 
 @each $class-name, $value in $overflows-y {
