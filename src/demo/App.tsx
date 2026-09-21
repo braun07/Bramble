@@ -14,7 +14,7 @@ function App() {
       <Menu />
       <div id="container" className="flex flex-col justify-center w-100 px-30 md:px-60 xxl:px-120 gap-60 sm:gap-90 my-130 sm:my-180">
         <section id="home" className="flex flex-col xl:flex-row items-center justify-between w-100">
-          <div className="xl:max-w-46 flex flex-col gap-50">
+          <div className="xl:max-w-46 flex flex-col gap-50 glow-content home">
             <h2 className='fw-600 text-30 sm:text-55 md:text-69 xl:text-40 xxl:text-55 exl:text-70 line-h-100'>
               <span className="text-bramble">{t("Build")}</span> {t("once")}.<br /> {t("Scale")} <span className="text-bramble">{t("everywhere")}</span>.
             </h2>
@@ -43,7 +43,7 @@ function App() {
         <section id="components" className="flex flex-col gap-60 sm:gap-90 items-center">
           <h3 className="fw-600 text-26 lg:text-32 border-bramble border-solid border-bottom-3 line-h-180">{t("Components")}</h3>
 
-          <div className="flex items-center justify-center bg-code-2 py-20 px-20 sm:px-100 sm:py-100 rounded-15 gap-35 w-100 max-w-100 wrap component-listing overscroll-contain">
+          <div className="flex items-center justify-center bg-code-2 py-20 px-20 sm:px-100 sm:py-100 rounded-15 gap-35 w-100 max-w-100 wrap component-listing glow-content overscroll-contain">
             <ComponentHolder
               title={t("Button")}
             >
