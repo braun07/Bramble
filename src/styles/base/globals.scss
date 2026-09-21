@@ -48,6 +48,7 @@ p {
 html {
   box-sizing: border-box;
   color: var(--text-primary);
+  scroll-behavior: smooth;
 }
 
 *,
@@ -138,4 +139,12 @@ textarea {
 
   z-index: -1;
   pointer-events: none;
+}
+
+#home {
+  scroll-margin-top: 200px;
+}
+
+#components {
+  scroll-margin-top: 100px;
 }
