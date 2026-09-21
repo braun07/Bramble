@@ -10,3 +10,25 @@ $overflows: (
 @each $class-name, $value in $overflows {
   @include generate-utility-class($class-name, (overflow: $value));
 }
+
+$overflows-x: (
+  'overflow-x-visible': visible,
+  'overflow-x-hidden': hidden,
+  'overflow-x-scroll': scroll,
+  'overflow-x-auto': auto
+);
+
+@each $class-name, $value in $overflows-x {
+  @include generate-utility-class($class-name, (overflow-x: $value));
+}
+
+$overflows-y: (
+  'overflow-y-visible': visible,
+  'overflow-y-hidden': hidden,
+  'overflow-y-scroll': scroll,
+  'overflow-y-auto': auto
+);
+
+@each $class-name, $value in $overflows-y {
+  @include generate-utility-class($class-name, (overflow-y: $value));
+}

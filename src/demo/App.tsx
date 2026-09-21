@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Menu />
-      <div id="container" className="flex flex-col justify-center w-100 px-30 md:px-60 xxl:px-120 gap-60 sm:gap-90 my-130 sm:my-180">
+      <div id="container" className="flex flex-col justify-center w-100 px-30 md:px-60 xxl:px-120 gap-60 sm:gap-90 my-130 sm:my-180 overflow-hidden">
         <section id="home" className="flex flex-col xl:flex-row items-center justify-between w-100">
           <div className="xl:max-w-46 flex flex-col gap-50 glow-content home">
             <h2 className='fw-600 text-30 sm:text-55 md:text-69 xl:text-40 xxl:text-55 exl:text-70 line-h-100'>
@@ -43,80 +43,82 @@ function App() {
         <section id="components" className="flex flex-col gap-60 sm:gap-90 items-center">
           <h3 className="fw-600 text-26 lg:text-32 border-bramble border-solid border-bottom-3 line-h-180">{t("Components")}</h3>
 
-          <div className="flex items-center justify-center bg-code-2 py-20 px-20 sm:px-100 sm:py-100 rounded-15 gap-35 w-100 max-w-100 wrap component-listing glow-content overscroll-contain">
-            <ComponentHolder
-              title={t("Button")}
-            >
-              <Button
-                variant='white'
-                className='px-32 py-10 default-shadow'
+          <div className="glow-content component-list">
+            <div className="flex items-center justify-center bg-code-2 py-20 px-20 sm:px-100 sm:py-100 rounded-15 gap-35 w-100 max-w-100 wrap component-listing overscroll-contain">
+              <ComponentHolder
+                title={t("Button")}
               >
-                {t("Button")}
-              </Button>
-            </ComponentHolder>
-            <ComponentHolder
-              title={t("Profile Display")}
-            >
-              <Button
-                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                <Button
+                  variant='white'
+                  className='px-32 py-10 default-shadow'
+                >
+                  {t("Button")}
+                </Button>
+              </ComponentHolder>
+              <ComponentHolder
+                title={t("Profile Display")}
               >
-                {t("Button")}
-              </Button>
-            </ComponentHolder>
-            <ComponentHolder
-              title={t("Alert")}
-            >
-              <Button
-                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                <Button
+                  className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                >
+                  {t("Button")}
+                </Button>
+              </ComponentHolder>
+              <ComponentHolder
+                title={t("Alert")}
               >
-                {t("Button")}
-              </Button>
-            </ComponentHolder>
-            <ComponentHolder
-              title={t("Loading")}
-            >
-              <Button
-                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                <Button
+                  className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                >
+                  {t("Button")}
+                </Button>
+              </ComponentHolder>
+              <ComponentHolder
+                title={t("Loading")}
               >
-                {t("Button")}
-              </Button>
-            </ComponentHolder>
-            <ComponentHolder
-              title={t("Action Button")}
-            >
-              <Button
-                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                <Button
+                  className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                >
+                  {t("Button")}
+                </Button>
+              </ComponentHolder>
+              <ComponentHolder
+                title={t("Action Button")}
               >
-                {t("Button")}
-              </Button>
-            </ComponentHolder>
-            <ComponentHolder
-              title={t("Toggle")}
-            >
-              <Button
-                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                <Button
+                  className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                >
+                  {t("Button")}
+                </Button>
+              </ComponentHolder>
+              <ComponentHolder
+                title={t("Toggle")}
               >
-                {t("Button")}
-              </Button>
-            </ComponentHolder>
-            <ComponentHolder
-              title={t("Checkbox")}
-            >
-              <Button
-                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                <Button
+                  className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                >
+                  {t("Button")}
+                </Button>
+              </ComponentHolder>
+              <ComponentHolder
+                title={t("Checkbox")}
               >
-                {t("Button")}
-              </Button>
-            </ComponentHolder>
-            <ComponentHolder
-              title={t("Input")}
-            >
-              <Button
-                className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                <Button
+                  className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                >
+                  {t("Button")}
+                </Button>
+              </ComponentHolder>
+              <ComponentHolder
+                title={t("Input")}
               >
-                {t("Button")}
-              </Button>
-            </ComponentHolder>
+                <Button
+                  className='bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow'
+                >
+                  {t("Button")}
+                </Button>
+              </ComponentHolder>
+            </div>
           </div>
         </section>
         <section id="contact" className="flex flex-col gap-60 sm:gap-90 items-center w-100">
