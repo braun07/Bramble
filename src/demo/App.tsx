@@ -7,6 +7,7 @@ import { Alert, Button, CodeWindow, ComponentHolder, ProfileDisplay } from "../c
 import { Footer } from "../components/Footer";
 import { Menu } from "../components/Menu";
 import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
+import { Loading } from "../components/Loading";
 
 const CONTACT_EMAIL = "joaovitorbraun6@gmail.com";
 
@@ -74,9 +75,7 @@ function App() {
                 <Alert variant="success" icon={checkIcon} message="Form saved!" dismissible />
               </ComponentHolder>
               <ComponentHolder title={t("components.loading")}>
-                <Button className="bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow">
-                  {t("components.button")}
-                </Button>
+                <Loading />
               </ComponentHolder>
               <ComponentHolder title={t("components.actionButton")}>
                 <Button className="bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow">

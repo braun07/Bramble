@@ -2,11 +2,7 @@ import type { FC } from "react";
 import styles from "./Alert.module.scss";
 import { cn } from "../../utils/cn";
 
-export type AlertVariant =
-    | "info"
-    | "success"
-    | "warning"
-    | "danger";
+export type AlertVariant = "info" | "success" | "warning" | "danger";
 
 export interface AlertProps {
     variant?: AlertVariant;
