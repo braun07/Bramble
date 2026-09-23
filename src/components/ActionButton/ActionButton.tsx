@@ -2,11 +2,11 @@ import type { ButtonHTMLAttributes } from "react";
 import { cn } from "../../utils/cn";
 import styles from "./ActionButton.module.scss";
 
-export type ButtonSize = "sm" | "md" | "lg";
+export type ActionButtonSize = "sm" | "md" | "lg";
 
 export interface ActionButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: ButtonSize;
+  size?: ActionButtonSize;
   icon: string;
   iconAlt: string;
 }
@@ -23,7 +23,7 @@ export function ActionButton({
   const classes = cn(
     styles.actionButton,
     styles[`actionButton--${size}`],
-    "default-shadow",
+    "default-shadow items-center justify-center cursor-pointer inline-flex bg-white",
     className
   );
 
