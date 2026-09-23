@@ -9,6 +9,10 @@
   width: 70px;
 }
 
+.buttonWidth {
+  width: 65px;
+}
+
 @media (max-width: #{map.get($breakpoints, md) - 1px}) {
   .menuIcon {
     width: 40px;
