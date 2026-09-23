@@ -3,11 +3,13 @@ import gitImg from "../assets/git.png";
 import checkIcon from "../assets/check.svg";
 import linkedinImg from "../assets/linkedin.png";
 import mailImg from "../assets/mail.png";
+import copyImg from '../assets/Copy.svg';
 import { Alert, Button, CodeWindow, ComponentHolder, ProfileDisplay } from "../components";
 import { Footer } from "../components/Footer";
 import { Menu } from "../components/Menu";
 import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
 import { Loading } from "../components/Loading";
+import { ActionButton } from "../components/ActionButton";
 
 const CONTACT_EMAIL = "joaovitorbraun6@gmail.com";
 
@@ -65,8 +67,8 @@ function App() {
                 </Button>
               </ComponentHolder>
               <ComponentHolder title={t("components.profileDisplay")}>
-                <ProfileDisplay 
-                  photoUrl="https://mockmind-api.uifaces.co/content/human/222.jpg" 
+                <ProfileDisplay
+                  photoUrl="https://mockmind-api.uifaces.co/content/human/222.jpg"
                   welcomeMessage="Welcome!"
                   userName="Jhon Doe"
                 />
@@ -78,9 +80,7 @@ function App() {
                 <Loading />
               </ComponentHolder>
               <ComponentHolder title={t("components.actionButton")}>
-                <Button className="bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow">
-                  {t("components.button")}
-                </Button>
+                <ActionButton iconAlt="copy" icon={copyImg} />
               </ComponentHolder>
               <ComponentHolder title={t("components.toggle")}>
                 <Button className="bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow">
