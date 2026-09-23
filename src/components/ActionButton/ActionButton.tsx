@@ -14,28 +14,25 @@ export interface ActionButtonProps
 export function ActionButton({
   size = "md",
   className,
-  onClick,
   icon,
   iconAlt,
   "aria-label": ariaLabel,
+  type = "button",
   ...props
 }: ActionButtonProps) {
-  const classes = cn(
-    styles.actionButton,
-    styles[`actionButton--${size}`],
-    "default-shadow items-center justify-center cursor-pointer inline-flex bg-white",
-    className
-  );
-
   return (
     <button
-      type="button"
-      className={classes}
-      onClick={onClick}
+      type={type}
+      className={cn(
+        styles.actionButton,
+        styles[size],
+        "default-shadow items-center justify-center cursor-pointer inline-flex bg-white",
+        className,
+      )}
       aria-label={ariaLabel ?? iconAlt}
       {...props}
     >
-      <img className={styles.actionButton__icon} src={icon} alt="" />
+      <img className={styles.icon} src={icon} alt="" />
     </button>
   );
 }

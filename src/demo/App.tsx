@@ -3,12 +3,23 @@ import gitImg from "../assets/git.png";
 import checkIcon from "../assets/check.svg";
 import linkedinImg from "../assets/linkedin.png";
 import mailImg from "../assets/mail.png";
-import copyImg from '../assets/Copy.svg';
-import { Alert, Button, CodeWindow, ComponentHolder, ProfileDisplay, ActionButton, Toggle } from "../components";
+import copyImg from "../assets/Copy.svg";
+import LinesIMG from "../assets/LinesIMG.png";
+import {
+  ActionButton,
+  Alert,
+  Button,
+  Checkbox,
+  CodeWindow,
+  ComponentHolder,
+  Input,
+  Loading,
+  ProfileDisplay,
+  Toggle,
+} from "../components";
 import { Footer } from "../components/Footer";
 import { Menu } from "../components/Menu";
 import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
-import { Loading } from "../components/Loading";
 
 const CONTACT_EMAIL = "joaovitorbraun6@gmail.com";
 
@@ -82,17 +93,16 @@ function App() {
                 <ActionButton iconAlt="copy" icon={copyImg} />
               </ComponentHolder>
               <ComponentHolder title={t("components.toggle")}>
-                <Toggle/>
+                <Toggle />
               </ComponentHolder>
               <ComponentHolder title={t("components.checkbox")}>
-                <Button className="bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow">
-                  {t("components.button")}
-                </Button>
+                <div className="flex items-center gap-10">
+                  <Checkbox id="Components__Test" />
+                  <img src={LinesIMG} alt="lines" />
+                </div>
               </ComponentHolder>
               <ComponentHolder title={t("components.input")}>
-                <Button className="bg-white w-fit rounded-4 text-black px-32 py-10 default-shadow">
-                  {t("components.button")}
-                </Button>
+                <Input />
               </ComponentHolder>
             </div>
           </div>

@@ -4,5 +4,7 @@ export * from "./ComponentHolder";
 export * from "./Input";
 export * from "./ProfileDisplay";
 export * from "./Alert";
+export * from "./Loading";
 export * from "./ActionButton";
 export * from "./Toggle";
+export * from "./Checkbox";

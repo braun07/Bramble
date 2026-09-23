@@ -1,12 +1,12 @@
 import { cn } from "../../utils/cn";
 import styles from "./ProfileDisplay.module.scss";
 
-export type ProfileDisplaySize = "small" | "default" | "large";
+export type ProfileDisplaySize = "sm" | "md" | "lg";
 
 const PHOTO_SIZES: Record<ProfileDisplaySize, number> = {
-  small: 40,
-  default: 60,
-  large: 80,
+  sm: 40,
+  md: 60,
+  lg: 80,
 };
 
 export interface ProfileDisplayProps {
@@ -14,25 +14,26 @@ export interface ProfileDisplayProps {
   welcomeMessage?: string;
   userName?: string;
   size?: ProfileDisplaySize;
+  className?: string;
 }
 
 export function ProfileDisplay({
   photoUrl,
   welcomeMessage,
   userName,
-  size = "default",
+  size = "md",
+  className,
 }: ProfileDisplayProps) {
   const photoSize = PHOTO_SIZES[size];
 
   return (
-    <div className="flex gap-20 items-center">
+    <div className={cn("flex gap-20 items-center", className)}>
       <img
         src={photoUrl}
-        alt="userPhoto"
-        className={cn(styles.userPhoto, size !== "default" && styles[size])}
+        alt=""
+        className={cn(styles.userPhoto, styles[size])}
         width={photoSize}
         height={photoSize}
-        style={{ width: photoSize, height: photoSize }}
       />
       <div className="flex flex-col text-12 line-h-120">
         <span className="fw-700">{welcomeMessage}</span>
