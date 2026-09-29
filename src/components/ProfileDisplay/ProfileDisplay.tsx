@@ -1,5 +1,6 @@
 import { cn } from "../../utils/cn";
 import styles from "./ProfileDisplay.module.scss";
+import defaultAvatarImg from '../../assets/default_avatar.jpg';
 
 export type ProfileDisplaySize = "sm" | "md" | "lg";
 
@@ -18,22 +19,25 @@ export interface ProfileDisplayProps {
 }
 
 export function ProfileDisplay({
-  photoUrl,
-  welcomeMessage,
-  userName,
+  photoUrl = defaultAvatarImg,
+  welcomeMessage = "Welcome!",
+  userName = "User",
   size = "md",
   className,
 }: ProfileDisplayProps) {
   const photoSize = PHOTO_SIZES[size];
 
   return (
-    <div className={cn("flex gap-20 items-center", className)}>
+    <div data-testid="profile-container" className={cn("flex gap-20 items-center", className)}>
       <img
         src={photoUrl}
-        alt=""
+        aria-label="user profile photo"
         className={cn(styles.userPhoto, styles[size])}
         width={photoSize}
         height={photoSize}
+        onError={(e) => {
+          if (e.currentTarget.src !== defaultAvatarImg) e.currentTarget.src = defaultAvatarImg;
+        }}
       />
       <div className="flex flex-col text-12 line-h-120">
         <span className="fw-700">{welcomeMessage}</span>
