@@ -22,13 +22,27 @@ export function Button({
   variant = "primary",
   size = "md",
   className,
+  children = "Button",
   ...props
 }: ButtonProps) {
-  const classes = cn(styles.button, styles[variant], styles[size], className);
+  const classes = cn(
+    styles.button,
+    styles[variant],
+    styles[size],
+    className
+  );
 
   if (props.href !== undefined) {
-    return <a className={classes} {...props} />;
+    return (
+      <a className={classes} {...props}>
+        {children}
+      </a>
+    );
   }
 
-  return <button className={classes} {...props} />;
+  return (
+    <button className={classes} {...props}>
+      {children}
+    </button>
+  );
 }
