@@ -32,7 +32,7 @@ export function ActionButton({
       aria-label={ariaLabel ?? iconAlt}
       {...props}
     >
-      <img className={styles.icon} src={icon} alt="" />
+      <img className={styles.icon} src={icon} alt={iconAlt} />
     </button>
   );
 }

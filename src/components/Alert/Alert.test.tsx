@@ -47,7 +47,7 @@ describe("Alert", () => {
 
   test("comes back 3 seconds after dismiss when timeOut is set", () => {
     vi.useFakeTimers();
-    render(<Alert timeOut />);
+    render(<Alert DebugMode />);
     fireEvent.click(screen.getByRole("button", { name: /dismiss alert/i }));
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
 

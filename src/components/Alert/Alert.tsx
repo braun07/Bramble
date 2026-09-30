@@ -9,7 +9,7 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   message?: string;
   icon?: string;
   dismissible?: boolean;
-  timeOut?: boolean;
+  DebugMode?: boolean;
 }
 
 export function Alert({
@@ -17,7 +17,7 @@ export function Alert({
   message = "this is an alert",
   icon,
   dismissible = true,
-  timeOut = false,
+  DebugMode = false,
   className,
   ...props
 }: AlertProps) {
@@ -27,11 +27,11 @@ export function Alert({
   const handleDismissAlert = () => setAlertVisible(false);
 
   useEffect(() => {
-    if (alertVisible || !timeOut) return;
+    if (alertVisible || !DebugMode) return;
 
     const timer = setTimeout(() => setAlertVisible(true), 3000);
     return () => clearTimeout(timer);
-  }, [alertVisible, timeOut]);
+  }, [alertVisible, DebugMode]);
 
   return (
     <>
