@@ -84,7 +84,7 @@ function App() {
                 />
               </ComponentHolder>
               <ComponentHolder title={t("components.alert")}>
-                <Alert variant="success" icon={checkIcon} message="Form saved!" dismissible />
+                <Alert variant="success" icon={checkIcon} message="Form saved!" timeOut />
               </ComponentHolder>
               <ComponentHolder title={t("components.loading")}>
                 <Loading />
