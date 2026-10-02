@@ -10,6 +10,7 @@ export interface ActionButtonProps
   size?: ActionButtonSize;
   icon?: string;
   iconAlt?: string;
+  disabled?: boolean;
 }
 
 export function ActionButton({
@@ -19,11 +20,14 @@ export function ActionButton({
   iconAlt = "Action Button Icon",
   "aria-label": ariaLabel,
   type = "button",
+  disabled,
   ...props
 }: ActionButtonProps) {
   return (
     <button
       type={type}
+      disabled={disabled}
+
       className={cn(
         styles.actionButton,
         styles[size],
