@@ -43,4 +43,10 @@ describe("ActionButton", () => {
         imgElement.dispatchEvent(new Event("error"));
         expect(imgElement).toHaveAttribute("src", defaultIconUrl);
     });
+
+    test("reders with disabled attribute when provided", () => {
+        render(<ActionButton disabled />);
+        const button = screen.getByRole("button");
+        expect(button).toBeDisabled();
+    });
 });
