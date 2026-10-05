@@ -56,6 +56,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           disabled && styles.disabled,
           className,
         )}
+        data-testid="checkbox-container"
       >
         <input
           {...props}

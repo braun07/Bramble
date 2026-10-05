@@ -96,10 +96,7 @@ function App() {
                 <Toggle />
               </ComponentHolder>
               <ComponentHolder title={t("components.checkbox")}>
-                <div className="flex items-center gap-10">
-                  <Checkbox id="Components__Test" />
-                  <img src={LinesIMG} alt="lines" />
-                </div>
+                <Checkbox id="Components__Test" label="Hi User" />
               </ComponentHolder>
               <ComponentHolder title={t("components.input")}>
                 <Input />
