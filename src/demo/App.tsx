@@ -4,7 +4,6 @@ import checkIcon from "../assets/check.svg";
 import linkedinImg from "../assets/linkedin.png";
 import mailImg from "../assets/mail.png";
 import copyImg from "../assets/Copy.svg";
-import LinesIMG from "../assets/LinesIMG.png";
 import {
   ActionButton,
   Alert,
