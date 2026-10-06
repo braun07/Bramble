@@ -14,6 +14,7 @@ export interface InputProps
   fullWidth?: boolean;
   leftElement?: ReactNode;
   rightElement?: ReactNode;
+  labelClass?: string
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -30,6 +31,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       className,
       disabled,
       required,
+      labelClass,
       ...props
     },
     ref,
@@ -39,10 +41,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div
+        data-testid="input-container"
         className={cn(styles.container, fullWidth && styles.fullWidth, className)}
       >
         {label && (
-          <label htmlFor={inputId} className={styles.label}>
+          <label htmlFor={inputId} className={cn(styles.label, labelClass)}>
             {label}
             {required && <span className={styles.required}>*</span>}
           </label>
@@ -57,9 +60,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             leftElement ? styles.hasLeftElement : undefined,
             rightElement ? styles.hasRightElement : undefined,
           )}
+          data-testid="input-wrapper"
         >
           {leftElement && (
-            <span className={styles.leftElement}>{leftElement}</span>
+            <span className={styles.leftElement} data-testid="input-leftElement">{leftElement}</span>
           )}
 
           <input
@@ -80,18 +84,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
 
           {rightElement && (
-            <span className={styles.rightElement}>{rightElement}</span>
+            <span className={styles.rightElement} data-testid="input-rightElement">{rightElement}</span>
           )}
         </div>
 
         {error && (
-          <span id={`${inputId}-error`} className={styles.errorMessage}>
+          <span id={`${inputId}-error`} className={styles.errorMessage} data-testid="input-error">
             {error}
           </span>
         )}
 
         {!error && helperText && (
-          <span id={`${inputId}-helper`} className={styles.helperText}>
+          <span id={`${inputId}-helper`} className={styles.helperText} data-testid="input-helper">
             {helperText}
           </span>
         )}

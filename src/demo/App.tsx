@@ -98,7 +98,7 @@ function App() {
                 <Checkbox id="Components__Test" label="Hi User" />
               </ComponentHolder>
               <ComponentHolder title={t("components.input")}>
-                <Input />
+                <Input label="This input is for testing" placeholder="type something" labelClass="text-white" required />
               </ComponentHolder>
             </div>
           </div>
